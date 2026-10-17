@@ -15,7 +15,7 @@ if (!reducedMotion && 'IntersectionObserver' in window) {
       }
     });
   }, { threshold: 0.08 });
-  document.querySelectorAll('.context, .mission-band, .flip-card, .trust-row, .compare, .steps article, .story-step, .story-numbers, .human, .faq, .early').forEach(section => {
+  document.querySelectorAll('.statement, .photo-grid li, .figures, .columns > div, .principles > div, .compare, .steps li, .preview, .timeline > div, .human-photo, .human-text, .faq-list, .early-panel, .founders-grid').forEach(section => {
     section.classList.add('reveal');
     observer.observe(section);
   });
