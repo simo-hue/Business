@@ -1,4 +1,4 @@
-name: Deploy ComplAI to GitHub Pages
+name: Deploy Regulift to GitHub Pages
 
 on:
   push:
