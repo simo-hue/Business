@@ -32,3 +32,5 @@
 .hero-art img{max-width:470px;mix-blend-mode:multiply;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 9%,#000 91%,transparent),linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent,#000 9%,#000 91%,transparent),linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);mask-composite:intersect}
 /* Minimal hero copy */
 .intro{max-width:400px;font-size:16px;line-height:1.7;margin-top:26px}.hero-copy .actions{margin-top:34px}
+/* Balanced hero composition */
+.hero{padding-top:10px}.hero-grid{grid-template-columns:1fr 1fr;gap:40px;align-items:center;min-height:620px}.hero-copy{justify-self:center;max-width:520px;width:100%;padding:0}.hero-copy h1{margin:0 0 26px}.intro{margin-top:0}.hero-copy .actions{margin-top:30px}.hero-art{justify-self:center}.hero-art img{max-width:440px}.hero-baseline{margin-top:20px}@media(max-width:1100px){.hero-copy{max-width:440px}}@media(max-width:760px){.hero-grid{min-height:auto;gap:20px}.hero-copy{justify-self:start;padding-top:30px}.hero-art img{max-width:340px}}
