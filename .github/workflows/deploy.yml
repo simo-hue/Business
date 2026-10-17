@@ -1,4 +1,4 @@
-name: Deploy ComplAI to GitHub Pages
+name: Deploy Regulift to GitHub Pages
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: complai/dist
+          path: regulift/dist
 
       - name: Deploy to GitHub Pages
         id: deployment

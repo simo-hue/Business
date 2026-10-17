@@ -1,0 +1,288 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "Regulift home" [ref=e3] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e4]: ↑
+      - text: Regu
+      - generic [ref=e5]: lift
+    - navigation "Main navigation" [ref=e6]:
+      - link "Our approach" [ref=e7] [cursor=pointer]:
+        - /url: "#approach"
+      - link "The platform" [ref=e8] [cursor=pointer]:
+        - /url: "#platform"
+      - link "FAQs" [ref=e9] [cursor=pointer]:
+        - /url: "#questions"
+    - link "Get early access ↗" [ref=e10] [cursor=pointer]:
+      - /url: "#early-access"
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic [ref=e15]: REGULATION THAT LIFTS YOU. NOT ONE THAT WEIGHS YOU DOWN.
+          - heading [level=1] [ref=e17]:
+            - text: Regulation,
+            - generic [ref=e18]: lifted
+            - text: .
+          - paragraph [ref=e21]: "Compliance spending keeps rising. We are building Regulift to bring it down: assessed from inside your own systems, reviewed by real lawyers, so regulation becomes the reason you can compete."
+          - generic [ref=e22]:
+            - link "Join the early-access list ↗" [ref=e23] [cursor=pointer]:
+              - /url: "#early-access"
+              - text: Join the early-access list
+              - generic [ref=e24]: ↗
+            - generic [ref=e25]:
+              - button "▷ Explore the demo" [disabled] [ref=e26]
+              - generic [ref=e27]: Coming soon
+          - generic [ref=e28]:
+            - generic [ref=e29]: 01 · BUILT FOR WHAT’S NEXT
+            - paragraph [ref=e30]: Starting with European tech companies.Cut the legal bill before the clock starts.
+        - 'generic "Illustration: scattered company documents becoming an organized readiness overview" [ref=e31]':
+          - generic [ref=e33]:
+            - generic [ref=e34]: THE REGULIFT EFFECT
+            - generic [ref=e35]: CONCEPT / 001
+          - generic [ref=e36]:
+            - generic [ref=e37]: ↳ INPUT 01
+            - generic [ref=e38]: Company policies
+            - generic [ref=e42]: PDF / 12 pages
+          - generic [ref=e43]:
+            - generic [ref=e44]: ↳ INPUT 02
+            - generic [ref=e45]: Your technology
+            - generic [ref=e46]: systems → data → peoplecontext.connect(company)understand(the_whole_picture)
+            - generic [ref=e49]: Technical documentation
+          - generic [ref=e50]:
+            - generic [ref=e51]: ↳ INPUT 03
+            - generic [ref=e52]: How you operate
+            - generic [ref=e55]: Company profile
+          - generic [ref=e59]:
+            - text: ↑
+            - generic [ref=e60]: ✳
+          - generic [ref=e61]:
+            - generic [ref=e62]:
+              - generic [ref=e63]: ↗
+              - generic [ref=e64]: THE NEXT STEP IS CLEAR
+            - heading "From burden to advantage." [level=3] [ref=e65]: From burdento advantage.
+            - paragraph [ref=e67]: Understand. Improve. Prepare.
+          - generic [ref=e69]:
+            - generic [ref=e70]: SCATTERED MATERIALS → COMPETITIVE ADVANTAGE
+            - generic [ref=e71]: ✳
+      - generic [ref=e72]:
+        - generic [ref=e73]: A new perspective on compliance.
+        - link "TAKE A CLOSER LOOK ↓" [ref=e74] [cursor=pointer]:
+          - /url: "#platform"
+        - generic [ref=e75]: DESIGNED FOR EUROPE. BUILT TO LIFT.
+      - generic [ref=e76]:
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - text: 01 / THE BIGGER PICTURE
+            - heading "All the context. One clear view." [level=2] [ref=e79]: All the context.One clear view.
+          - paragraph [ref=e80]:
+            - text: A place for your materials, your gaps,and your next move.
+            - generic [ref=e81]: Illustrative product preview · Sample data
+        - generic [ref=e82]:
+          - complementary [ref=e83]:
+            - generic [ref=e84]:
+              - text: Regu
+              - generic [ref=e85]: lift
+            - generic [ref=e86]:
+              - generic [ref=e87]: "N"
+              - generic [ref=e88]:
+                - text: Northstar Technologies
+                - generic [ref=e89]: Sample company
+            - generic [ref=e90]: ◫ Overview
+            - generic [ref=e91]: ▤ Company materials
+            - generic [ref=e92]: ◎ Assessments
+            - generic [ref=e93]: ☑ Action plan
+            - generic [ref=e94]: ◇ Legal review
+            - generic [ref=e95]: Your next step, made clear
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]: Workspace / Overview
+              - generic [ref=e100]: JD
+            - generic [ref=e101]:
+              - generic [ref=e102]:
+                - text: YOUR WORKSPACE
+                - heading "A clearer picture. A confident next step." [level=2] [ref=e103]
+                - paragraph [ref=e104]: Understand your position across the regulations that matter to you.
+              - generic [ref=e105]: SAMPLE DATA
+            - generic [ref=e106]:
+              - generic [ref=e107]:
+                - generic [ref=e108]: Frameworks in view
+                - strong [ref=e109]:
+                  - text: "04"
+                  - generic [ref=e110]: Based on company profile
+              - generic [ref=e111]:
+                - generic [ref=e112]: Materials organized
+                - strong [ref=e113]:
+                  - text: "12"
+                  - generic [ref=e114]: Documents in your workspace
+              - generic [ref=e115]:
+                - generic [ref=e116]: Your next action
+                - strong [ref=e117]:
+                  - text: Add your data policy
+                  - generic [ref=e118]: ↗
+            - generic [ref=e119]:
+              - generic [ref=e120]:
+                - heading "Assessment overview" [level=3] [ref=e121]
+                - generic [ref=e122]: 4 frameworks
+              - generic [ref=e123]:
+                - generic [ref=e124]: REGULATION
+                - generic [ref=e125]: ASSESSMENT STATUS
+                - generic [ref=e126]: NEXT STEP
+              - generic [ref=e127]:
+                - generic [ref=e128]:
+                  - generic [ref=e129]: G
+                  - strong [ref=e130]:
+                    - text: GDPR
+                    - generic [ref=e131]: Data protection
+                - generic [ref=e132]: Missing evidence
+                - generic [ref=e133]: Add data policy ↗
+              - generic [ref=e134]:
+                - generic [ref=e135]:
+                  - generic [ref=e136]: AI
+                  - strong [ref=e137]:
+                    - text: EU AI Act
+                    - generic [ref=e138]: Artificial intelligence
+                - generic [ref=e139]: Assessment in progress
+                - generic [ref=e140]: Complete AI inventory ↗
+              - generic [ref=e141]:
+                - generic [ref=e142]:
+                  - generic [ref=e143]: "N"
+                  - strong [ref=e144]:
+                    - text: NIS2
+                    - generic [ref=e145]: Cybersecurity
+                - generic [ref=e146]: Ready for legal review
+                - generic [ref=e147]: Explore expert review ↗
+              - generic [ref=e148]:
+                - generic [ref=e149]:
+                  - generic [ref=e150]: D
+                  - strong [ref=e151]:
+                    - text: DORA
+                    - generic [ref=e152]: Digital operational resilience
+                - generic [ref=e153]: Applicability to confirm
+                - generic [ref=e154]: Review company profile ↗
+            - generic [ref=e155]: ◇ Clarity before certainty. Your assessment prepares you for independent legal review.
+    - generic [ref=e156]:
+      - paragraph [ref=e157]: LESS GUESSWORK. MORE DIRECTION.
+      - generic [ref=e158]:
+        - heading "The rules are complex. Your next move shouldn’t be." [level=2] [ref=e159]: The rules are complex.Your next move shouldn’t be.
+        - paragraph [ref=e160]:
+          - text: "Your policies live in one folder. Your technical documentation lives in another. And the question remains:"
+          - emphasis [ref=e161]: are we doing enough?
+          - text: Regulift is being designed to bring that information together, so you can understand what needs attention and what to do next.
+    - generic [ref=e163]:
+      - generic [ref=e164]:
+        - generic [ref=e165]:
+          - paragraph [ref=e166]: HOW IT WILL WORK
+          - heading "Bring the mess. Find your direction." [level=2] [ref=e167]: Bring the mess.Find your direction.
+        - paragraph [ref=e168]: One clear journey.Technology first. Human expertise next.
+      - generic [ref=e169]:
+        - article [ref=e170]:
+          - text: 01 / UNDERSTAND
+          - generic [ref=e171]:
+            - generic [ref=e172]:
+              - text: ≡ Company policies
+              - generic [ref=e173]: ✓
+            - generic [ref=e174]:
+              - text: ≡ Technical documentation
+              - generic [ref=e175]: ✓
+            - generic [ref=e176]:
+              - text: ≡ Company profile
+              - generic [ref=e177]: ✓
+          - heading "Bring your company into focus." [level=3] [ref=e178]
+          - paragraph [ref=e179]: Share your materials and describe how your business operates. Build the context for an assessment relevant to you.
+        - article [ref=e180]:
+          - text: 02 / IMPROVE
+          - generic [ref=e181]:
+            - generic [ref=e182]: Evidence gap identified
+            - generic [ref=e184]: Document your data retention process
+            - generic [ref=e187]: A clear action, not another question.
+          - heading "See the gaps. Find your next step." [level=3] [ref=e188]
+          - paragraph [ref=e189]: Explore an indicative assessment, understand missing evidence, and work through a focused plan to improve your readiness.
+        - article [ref=e190]:
+          - text: 03 / REVIEW
+          - generic [ref=e191]:
+            - generic [ref=e192]: ◇
+            - generic [ref=e193]:
+              - text: Ready for legal review
+              - generic [ref=e194]: Your materials. Expert perspective.
+          - heading "Take it to a real expert." [level=3] [ref=e195]
+          - paragraph [ref=e196]: When you’re ready, book a review with a partner law firm. A qualified lawyer evaluates your situation and the appropriate formal outcome.
+    - generic [ref=e197]:
+      - generic [ref=e198]:
+        - generic [ref=e199]:
+          - generic [ref=e200]: COMPANY CONTEXT
+          - generic [ref=e201]:
+            - text: Regu
+            - generic [ref=e202]: lift
+          - generic [ref=e203]: LEGAL EXPERTISE
+          - text: ✳
+        - generic [ref=e204]: Better prepared. Better conversations.
+      - generic [ref=e205]:
+        - paragraph [ref=e206]: BUILT AROUND THE HANDOFF
+        - heading "AI does the groundwork. People make the call." [level=2] [ref=e207]: AI does the groundwork.People make the call.
+        - paragraph [ref=e208]: Get your materials in order and understand your gaps before the legal conversation begins.
+        - paragraph [ref=e209]: Regulift’s assessment is a starting point. Independent legal review is a separate step, with the scope of any advice or certification agreed with your lawyer.
+        - link "Be part of what comes next ↗" [ref=e210] [cursor=pointer]:
+          - /url: "#early-access"
+          - text: Be part of what comes next
+          - generic [ref=e211]: ↗
+    - generic [ref=e212]:
+      - generic [ref=e213]:
+        - paragraph [ref=e214]: A FEW THINGS TO KNOW
+        - heading "Clear from the start." [level=2] [ref=e215]
+      - generic [ref=e216]:
+        - group [ref=e217]:
+          - generic "Who is Regulift being built for? +" [ref=e218] [cursor=pointer]:
+            - text: Who is Regulift being built for?
+            - generic [ref=e219]: +
+        - group [ref=e220]:
+          - generic "Does Regulift certify my company? +" [ref=e221] [cursor=pointer]:
+            - text: Does Regulift certify my company?
+            - generic [ref=e222]: +
+        - group [ref=e223]:
+          - generic "Which regulations are in the concept? +" [ref=e224] [cursor=pointer]:
+            - text: Which regulations are in the concept?
+            - generic [ref=e225]: +
+        - group [ref=e226]:
+          - generic "Can I use the platform today? +" [ref=e227] [cursor=pointer]:
+            - text: Can I use the platform today?
+            - generic [ref=e228]: +
+    - generic [ref=e229]:
+      - generic [ref=e230]:
+        - paragraph [ref=e231]: A CLEARER WAY FORWARD
+        - heading [level=2] [ref=e232]:
+          - text: Let’s make
+          - emphasis [ref=e233]: clear
+          - text: happen.
+        - paragraph [ref=e234]: Early access for forward-thinking European businesses.
+      - generic [ref=e235]:
+        - text: Join the early-access list
+        - generic [ref=e236]:
+          - textbox "Join the early-access list" [disabled] [ref=e237]:
+            - /placeholder: Your work email
+          - button "Registration coming soon" [disabled] [ref=e238]: ↗
+        - paragraph [ref=e239]: Registration coming soon
+        - text: This is a concept preview. No information is collected.
+    - region [ref=e241]:
+      - generic [ref=e242]:
+        - paragraph [ref=e243]: THE PEOPLE BEHIND REGULIFT
+        - heading "Meet the founders." [level=2] [ref=e244]
+        - generic [ref=e245]:
+          - paragraph [ref=e246]: We’re Simone and Andreas, students at EIT Digital Master School / 28DGTL. Simone studies AUSIR, Andreas Data Science.
+          - paragraph [ref=e247]: We met in Budapest during our entry year at ELTE. Now, we’re building Regulift together.
+      - generic [ref=e248]:
+        - generic [ref=e249]:
+          - img "Simone Mattioli, co-founder of Regulift" [ref=e250]
+          - heading "Simone Mattioli" [level=3] [ref=e251]
+          - paragraph [ref=e252]: Co-founder
+        - generic [ref=e253]:
+          - img "Andreas Herzinger, co-founder of Regulift" [ref=e254]
+          - heading "Andreas Herzinger" [level=3] [ref=e255]
+          - paragraph [ref=e256]: Co-founder
+  - contentinfo [ref=e257]:
+    - link "↑ Regu lift" [ref=e258] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e259]: ↑
+      - text: Regu
+      - generic [ref=e260]: lift
+    - paragraph [ref=e261]: Regulation, lifted.
+    - generic [ref=e262]: © 2026 Regulift · Concept preview
