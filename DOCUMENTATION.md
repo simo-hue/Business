@@ -55,3 +55,7 @@
 - [2026-10-18 Europe/Budapest]: Story page removed
 - *Details*: The illustrative Northstar article (`story.html`) and its nav link are removed. The nav reads Inside-out, How it works, FAQ.
 - *Tech Notes*: Story article CSS and its reveal selector removed; cache versions bumped.
+
+- [2026-10-18 12:37 Europe/Budapest]: Hero image — architectural building swap
+- *Details*: Replaced the nature/forest hero image (river in a misty valley) with a dramatic low-angle B&W architectural photograph of a modern glass building corner, inspired by the first slide of the SAFARI presentation template. The building's triangular upward-pointing shape aligns with the Regulift "↑" branding. Alt text updated accordingly. A prompt file (`hero-image-prompt.txt`) with variants for Midjourney, DALL-E, Stable Diffusion/Flux, and Leonardo.ai was created so a higher-res version can be generated externally.
+- *Tech Notes*: `assets/photo-hero.jpg` replaced (PNG→JPG via sips at 95% quality, 1347×617). HTML dimensions and alt text updated. Hero container background changed from `var(--mist)` (#e7edec) to `#fff` to match the image's white sky. No new dependencies. Verified in browser — wordmark overlay, layout, and aspect ratio all intact.

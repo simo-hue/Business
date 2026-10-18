@@ -38,7 +38,7 @@ h3{font-size:20px;letter-spacing:-.01em;line-height:1.25}
 
 /* hero */
 .hero{padding-top:8px}
-.hero-photo{position:relative;width:100%;border-radius:var(--r);overflow:hidden;aspect-ratio:16/9.6;max-height:82vh;background:var(--mist)}
+.hero-photo{position:relative;width:100%;border-radius:var(--r);overflow:hidden;aspect-ratio:16/9.6;max-height:82vh;background:#fff}
 .hero-photo img{width:100%;height:100%;object-fit:cover}
 .wordmark{position:absolute;left:0;right:0;bottom:-.08em;text-align:center;color:var(--paper);font-size:clamp(72px,20.5vw,290px);font-weight:500;letter-spacing:-.06em;line-height:1;pointer-events:none;text-shadow:0 10px 60px rgba(28,43,47,.25)}
 .hero .meta-row{margin-top:18px;border-top:0;padding-top:0}
