@@ -195,19 +195,6 @@ footer>span{font-size:12px;color:var(--muted);margin-left:auto;text-align:right}
 .flow-svg .tick{fill:none;stroke:var(--paper);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .flow-svg .chev{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
 .flow-svg .rule{stroke:var(--line-2);stroke-width:1}
-/* Story page */
-.article{padding-top:70px}
-.article-head{margin-top:70px;max-width:900px}
-.article h1{font-size:clamp(32px,4.4vw,60px);font-weight:500;letter-spacing:-.03em;line-height:1.05;text-wrap:balance}
-.article .lede{font-size:clamp(18px,1.9vw,23px);line-height:1.4;margin-top:28px;max-width:36em}
-.article .note{font-size:13px;color:var(--muted);margin-top:18px;max-width:60ch}
-.article-body{max-width:720px;margin-top:60px}
-.article-body h2{font-size:clamp(22px,2.4vw,30px);margin-top:48px;padding-top:18px;border-top:1px solid var(--line)}
-.article-body h2 .meta{display:block;margin-bottom:10px}
-.article-body p{font-size:17px;line-height:1.6;color:var(--ink-2);margin-top:16px}
-.results-head{margin-top:80px;border-top:0;padding-top:0;margin-bottom:14px}
-.article .results{margin-top:0}
-.article-end{margin-top:70px;display:flex;gap:28px;flex-wrap:wrap;font-size:15px}
 @media(max-width:1100px){
   .photo-grid{grid-template-columns:repeat(2,1fr)}
   .figures{grid-template-columns:1fr 1fr}.figures li:nth-child(2){border-right:0}.figures li:nth-child(-n+2){border-bottom:1px solid var(--line)}.figures li:nth-child(3){padding-left:0}

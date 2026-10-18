@@ -51,3 +51,7 @@
 - [2026-10-18 Europe/Budapest]: Data-flow diagram as vector, section reorder, FAQ updates
 - *Details*: The data-flow illustration is now an inline SVG in site tokens (system cards, converging lines, report stack, representative with check, dashed "Inside your company" boundary, mist "Regulift platform" panel). It lives in its own section "Where your data goes" with the headline "Context leaves. Your data stays." The handoff block "AI does the groundwork. People make the call." moved up between the comparison table and "How it works" and gained the standard meta row. FAQ: "Does Regulift certify my company?" now explains certify versus comply with the partner law firm inside the platform; "Which regulations are in the concept?" states the four as a starting set with the goal of covering every regulation in any market.
 - *Tech Notes*: New `.data`, `.human-grid`, `.section-title` and `.flow-svg` rules; the diagram keeps a 760px minimum width in a horizontal scroll strip on phones. Reveal list includes the section title. Cache versions bumped. Verified at 1400px and 400px: no horizontal overflow, no broken anchors.
+
+- [2026-10-18 Europe/Budapest]: Story page removed
+- *Details*: The illustrative Northstar article (`story.html`) and its nav link are removed. The nav reads Inside-out, How it works, FAQ.
+- *Tech Notes*: Story article CSS and its reveal selector removed; cache versions bumped.
