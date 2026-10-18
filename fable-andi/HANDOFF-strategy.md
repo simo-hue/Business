@@ -275,7 +275,7 @@ Scope note: this session sets strategy for the application and the slides. Nothi
    direct, case reasoning and confirmation signed by the German firm). Reasons "English works" and
    "programme at home" dropped on Andi's request. Seat line moved to the right kicker.
    Central deck (18 Oct, from Simone's `Regulift_product_workflow_updated.pptx`, 13 slides, 20 x
-   11.25 in): `pitch/regulift-central.pptx`, 16 slides. Inserted: product slide as 06 (after
+   11.25 in): `regulift-central.pptx` at the repo root, 16 slides. Inserted: product slide as 06 (after
    Simone's "From connection to action", which already restyles the same content, so one of the
    two should go), gate table as 11 and entry path as 12 (after "Market opportunity"). Imported
    slides are shifted down 0.5 in, lose their own kicker row and footer, and get the deck's nav
