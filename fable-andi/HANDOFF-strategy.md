@@ -227,3 +227,57 @@ Work through these in order, one decision each, with Andi and Simone deciding:
   `python3 -m http.server 8799` in `regulift/dist`), verify at 1400 and 400 px, bump `?v=` on CSS/JS.
 - Everything here is research, not legal advice. The first partner firm in each country reviews
   the structure before launch.
+
+## 9. Decisions from the strategy walkthrough (18 Oct 2026, second session)
+
+Scope note: this session sets strategy for the application and the slides. Nothing is built now.
+
+1. **Product definition.** One adviser (chatbot) over one evidence graph, gated by the country
+   setting. Open markets: applicability, case-specific explanations, gap ratings and filled
+   templates as Regulift's own output, two labels, "not legal advice", AI Act Art. 50 disclosure.
+   Germany: deterministic applicability, general explanations and templates directly; case-specific
+   reasoning goes to the firm's queue. Closed markets: facts, technical status, the firm's branded
+   checklist, templates and explanations; every judgement about the case comes back signed by the
+   firm. Comply and Expand stand as decided. The avatar is a demo layer for the Lab pitch and a
+   later release, labelled synthetic; the chatbot is the adviser in the plan.
+2. **Market order.** Netherlands first, adviser-led. Two slides built for the deck at Simone's
+   canvas size (20 x 11.25 in): the scored ten-country table (five criteria, unweighted, of 25)
+   and the decision slide with four reasons, the market order and the risks to test. Grilling
+   outcome: "open" is a hard gate, not a weight. The table keeps all ten rows and the order; the
+   "Adviser legal" column sits on a mist band labelled "The gate", the other four are "Ranking
+   criteria", the status pills are gone, title "Five criteria. One is a gate." No separate gate slide.
+   `pitch/market-slides.pptx`, generator `pitch/src/market.js` (built from `~/deckbuild`).
+   Style: website tokens plus the structure of Simone's `presentation.pptx` (kicker, big title
+   with a period, grey lead, rounded cards, one dark card). Seat in Austria and the one-firm
+   Nordic approach are on the decision slide as the recommendation, pending Andi's confirmation.
+   Ranking rule (Andi, 18 Oct): ties are broken by the gate score ("Adviser legal"), then by name.
+   Order now: Netherlands 21, Germany 20, Sweden 19, Italy 19, Denmark 17, Finland 16, Poland 16,
+   Austria 16, Belgium 15, Switzerland 15 (unranked, outside EU).
+3. **Regulation order.** Confirmed as decided (GDPR base, NIS2 first, AI Act Q1 2027, CRA, DORA
+   supplier module). First Expand country pack: Netherlands to Sweden, NIS2 only, authored by the
+   Nordic partner firm that is market two anyway. Belgium is the natural second pack once a Belgian
+   firm exists. Germany packs are gated (third layer signed by the German firm); the territorial
+   scope of the RDG for a Dutch customer is a question for the first German firm, not researched.
+   Column change (Andi, 18 Oct): "AI Act setup" dropped. Four criteria, of 20. Order: Netherlands 18,
+   Sweden 17, Germany 15, Belgium 14, Italy 14, Austria 14, Denmark 13, Finland 12, Poland 12,
+   Switzerland 14 (shown last, outside EU). Ties by gate score, then name.
+   Product slide (before the table): `pitch/product-slides.pptx`, generator `pitch/src/product.js`.
+   Two entities, "Inside the company" (mist: 01 Connect, 02 Approve, 05 Fix) and "Inside Regulift"
+   (ink: the brain with 03 Evidence and 04 Advise, 06 Confirm). Arrows across the gap: report in,
+   gaps out, evidence back. Brain analogy for the central system (Andi). Minimal version chosen
+   over cards; the ring and the plain horizontal loop were built and dropped.
+   Entry slide (replaces the decision slide, 18 Oct): "Enter open. Grow north. Win Germany." Three
+   stages: 01 Enter Netherlands (2027 H1), 02 Grow Sweden and the Nordics through one firm (2027 H2),
+   03 Win Germany (2028, dark panel, the end goal). Rows per stage: Regulation (NIS2 as the wedge,
+   AI Act second module from Q1 2027), Why here, The adviser may, We need. Band "The path into
+   Germany": arrive with customers (Expand packs from NL and SE), arrive with a firm (signs the third
+   layer, gets the mandates), then sell firm-led. Germany verdict: possible, gated (Smartlaw layers
+   direct, case reasoning and confirmation signed by the German firm). Reasons "English works" and
+   "programme at home" dropped on Andi's request. Seat line moved to the right kicker.
+   Central deck (18 Oct, from Simone's `Regulift_product_workflow_updated.pptx`, 13 slides, 20 x
+   11.25 in): `pitch/regulift-central.pptx`, 16 slides. Inserted: product slide as 06 (after
+   Simone's "From connection to action", which already restyles the same content, so one of the
+   two should go), gate table as 11 and entry path as 12 (after "Market opportunity"). Imported
+   slides are shifted down 0.5 in, lose their own kicker row and footer, and get the deck's nav
+   bar and page pill; pages renumbered. Merge script: `pitch/src/merge.py` (lxml), run against an
+   unpacked copy of the central deck. Sources: `pitch/market-slides.pptx`, `pitch/product-slides.pptx`.
