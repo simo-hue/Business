@@ -1,0 +1,273 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Regulift product proposal</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+<style>
+/* Layout: one reading column, a feature-by-market legality matrix as the centrepiece; Regulift tokens plus four status colours (legal, lawyer, critical, open). */
+:root{
+  --paper:#f6f4ee;--white:#fcfbf8;--ink:#1c2b2f;--ink2:#55676b;--muted:#8a9a9d;--line:#e3e0d7;--line2:#cfd6d3;--mist:#e7edec;--teal:#3e6670;
+  --ok:#3f7d5c;--okbg:#e2efe7;--amb:#9a6a1f;--ambbg:#f4e9d3;--bad:#9a4336;--badbg:#f3dfdb;--open:#5b6b8a;--openbg:#e4e8f0;
+  --font:Geist,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --paper:#171f21;--white:#1f292c;--ink:#eef0ea;--ink2:#b5c0c0;--muted:#86979a;--line:#2d393c;--line2:#3a484c;--mist:#243134;--teal:#8fb5bd;
+  --ok:#8fcfae;--okbg:#213a2f;--amb:#e0b268;--ambbg:#3d3220;--bad:#e3907f;--badbg:#422824;--open:#aab8d6;--openbg:#262e3d; color-scheme:dark } }
+:root[data-theme="dark"]{ --paper:#171f21;--white:#1f292c;--ink:#eef0ea;--ink2:#b5c0c0;--muted:#86979a;--line:#2d393c;--line2:#3a484c;--mist:#243134;--teal:#8fb5bd;
+  --ok:#8fcfae;--okbg:#213a2f;--amb:#e0b268;--ambbg:#3d3220;--bad:#e3907f;--badbg:#422824;--open:#aab8d6;--openbg:#262e3d; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:15.5px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 72px}
+p,h1,h2,h3,h4,ul,ol,table{margin:0}
+ul{padding-left:1.1em}
+h1,h2,h3,h4{font-weight:500;letter-spacing:-.02em;line-height:1.1;text-wrap:balance}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:60px}
+.meta{font-size:12px;font-weight:500;color:var(--ink2);letter-spacing:.01em}
+.metarow{display:flex;justify-content:space-between;gap:24px;border-top:1px solid var(--line);padding-top:12px;flex-wrap:wrap}
+.metarow .meta:last-child{text-align:right}
+header h1{font-size:clamp(32px,4.4vw,52px);letter-spacing:-.03em;margin-top:26px;max-width:18ch}
+header .lede{font-size:clamp(17px,1.9vw,21px);margin-top:20px;max-width:36em}
+section{display:grid;gap:20px}
+section h2{font-size:clamp(26px,3vw,36px);letter-spacing:-.025em;margin-top:16px;max-width:24ch}
+.intro{color:var(--ink2);max-width:68ch}
+.legend{display:flex;gap:10px 18px;flex-wrap:wrap;font-size:13px;color:var(--ink2);align-items:center;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;border-radius:999px;padding:3px 10px;white-space:nowrap;line-height:1.3}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.ok{background:var(--okbg);color:var(--ok)} .amb{background:var(--ambbg);color:var(--amb)} .bad{background:var(--badbg);color:var(--bad)} .open{background:var(--openbg);color:var(--open)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.step{border-top:1px solid var(--ink);padding-top:12px;display:grid;gap:8px;align-content:start}
+.step .n{font-size:12px;color:var(--ink2);font-weight:500}
+.step h3{font-size:18px}
+.step p{font-size:13.5px;color:var(--ink2)}
+.scroll{overflow-x:auto;border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:860px;background:var(--white)}
+th,td{text-align:left;vertical-align:top;padding:11px 12px;border-bottom:1px solid var(--line)}
+th{font-size:12px;font-weight:500;color:var(--ink2);border-bottom:1px solid var(--ink);background:var(--white);position:sticky;top:0}
+td:first-child{font-weight:500;color:var(--ink);min-width:220px}
+td small{display:block;color:var(--muted);font-size:11.5px;margin-top:3px;font-weight:400}
+tr.group td{background:var(--mist);font-weight:500;color:var(--ink);font-size:12.5px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:18px 20px 20px;display:grid;gap:8px;align-content:start;min-width:0}
+.card.mist{background:var(--mist);border-color:var(--mist)}
+.card h3{font-size:18px;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.card p,.card li{font-size:13.5px;color:var(--ink2)}
+.card ul{display:grid;gap:5px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.two>div{min-width:0}
+.list h3{font-size:17px;padding-top:12px;border-top:1px solid var(--ink);margin-bottom:6px}
+.list li{font-size:14px;color:var(--ink2);padding:7px 0;border-top:1px solid var(--line);list-style:none}
+.list ul{padding:0}
+.list li b{color:var(--ink);font-weight:500}
+.loop{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.loop .card h3{font-size:16px}
+.ui{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.tag{display:inline-block;font-size:11.5px;font-weight:500;border:1px solid var(--line2);border-radius:6px;padding:3px 8px;color:var(--ink);background:var(--paper)}
+.tag.signed{background:var(--mist);border-color:var(--mist)}
+.quote{font-size:clamp(19px,2.2vw,26px);line-height:1.3;max-width:30em;letter-spacing:-.01em}
+footer{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+footer b{color:var(--ink);font-weight:600;font-size:14px}
+@media (max-width:760px){ .two{grid-template-columns:1fr} }
+</style>
+
+<main class="wrap">
+
+<header>
+  <div class="metarow"><span class="meta">Regulift. Product proposal.</span><span class="meta">18 October 2026, for Simone and Andreas</span></div>
+  <h1>One product, built to be legal in the strictest market first</h1>
+  <p class="lede">Regulift reads a company's systems from the inside, collects the evidence, helps the company fix what is missing, and brings a partner law firm into the same workspace to confirm compliance in writing. This page says, in plain words, what the product does, which parts are legal everywhere, which parts need a lawyer's signature in strict countries, and what we must never do.</p>
+  <div class="legend">
+    <span class="pill ok">Legal</span><span>Regulift may do this itself and show it to the customer, in every market.</span>
+    <span class="pill amb">Lawyer signs</span><span>The AI prepares it, the partner lawyer reviews and signs before the customer sees it (in strict markets).</span>
+    <span class="pill bad">Critical</span><span>Never do this. Fines, void contracts or criminal risk.</span>
+    <span class="pill open">Open</span><span>Not settled by the research. Ask the first partner firm.</span>
+  </div>
+</header>
+
+<!-- 1. product in five steps -->
+<section id="product">
+  <div class="metarow"><span class="meta">1. What the product does</span><span class="meta">Five steps, each with its legal status</span></div>
+  <h2>From a read-only connection to a signed confirmation</h2>
+  <div class="steps">
+    <div class="step"><span class="n">Step 1</span><h3>Connect</h3><p>The company connects repositories, cloud accounts, HR and CRM tools with read-only access. Nothing is changed, nothing is copied out.</p><span class="pill ok">Legal</span></div>
+    <div class="step"><span class="n">Step 2</span><h3>Report and approve</h3><p>The collector writes a report about what the company runs and where data flows. No records, no file contents. One named person at the company approves it. Only then does it reach Regulift.</p><span class="pill ok">Legal</span></div>
+    <div class="step"><span class="n">Step 3</span><h3>Inventory and evidence</h3><p>Regulift builds the inventory, the data-flow map and the evidence record, and compares it against a checklist the partner law firm wrote and published under its name.</p><span class="pill ok">Legal</span></div>
+    <div class="step"><span class="n">Step 4</span><h3>Improve, in loops</h3><p>The company fixes gaps and uploads evidence. Technical fixes and template documents come from Regulift at once. Anything that judges the company's specific case is drafted by the AI and released by the lawyer.</p><span class="pill ok">Legal</span> <span class="pill amb">Lawyer signs</span></div>
+    <div class="step"><span class="n">Step 5</span><h3>Confirm</h3><p>The partner lawyer opens the same workspace, reviews the evidence pack and confirms compliance in writing, under the firm's name. The company pays the firm directly for that.</p><span class="pill amb">Lawyer signs</span></div>
+  </div>
+  <p class="quote">The software finds and organises the facts. Only a lawyer gives the verdict. That one sentence is the whole legal design.</p>
+</section>
+
+<!-- 2. feature matrix -->
+<section id="matrix">
+  <div class="metarow"><span class="meta">2. Feature by feature, market by market</span><span class="meta">Same code everywhere, one setting per country</span></div>
+  <h2>What the customer sees without a lawyer, and where</h2>
+  <p class="intro">Countries disagree about one thing: who may tell a company "this law applies to you" or "you comply". So every feature has a status per market group. Closed markets reserve legal advice to lawyers and have no safe harbour for software. Germany is strict but its highest court protects generic, rule-based tools. Open markets protect only the lawyer title.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Feature</th><th>Closed markets<br><small>Austria, Hungary, France, Luxembourg, Czechia</small></th><th>Germany<br><small>strict, with the Smartlaw safe harbour</small></th><th>Open markets<br><small>Italy, Netherlands, Nordics, Poland, Belgium, Switzerland</small></th></tr></thead>
+    <tbody>
+      <tr class="group"><td colspan="4">Reading and organising facts</td></tr>
+      <tr><td>Read-only connectors (GitHub, cloud, HR, CRM)<small>via MCP servers with read-only scopes</small></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>Context report, approved by the company's representative</td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>Inventory, data-flow map, AI inventory, supplier list</td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>Evidence record with a link to where each item was found</td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>Continuous re-reading as systems change</td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>Export of the full record, no lock-in</td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+
+      <tr class="group"><td colspan="4">Feedback during the loop</td></tr>
+      <tr><td>Technical control status<small>"no MFA on admin accounts", "backups not tested in 90 days", "no SBOM"</small></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>Gap view against the firm's checklist<small>"evidence missing for item 14", "38 of 52 items evidenced"</small></td><td><span class="pill ok">Legal</span><small>checklist published under the firm's name</small></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>Technical remediation guidance<small>"enable MFA here", "set retention to 90 days", "add the SBOM step"</small></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>Templates filled with the company's facts<small>retention schedule, processing agreement, incident playbook</small></td><td><span class="pill ok">Legal</span><small>shown as the firm's generator</small></td><td><span class="pill ok">Legal</span><small>form-book pattern, BGH Smartlaw</small></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>General explanations of the law<small>"Article 30 requires a record with these fields"</small></td><td><span class="pill ok">Legal</span><small>brand as the firm's content in Austria</small></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>Ranked actions, worded as instructions<small>"sign a processing agreement with this vendor"</small></td><td><span class="pill amb">Lawyer signs</span><small>ranking logic authored by the firm</small></td><td><span class="pill ok">Legal</span><small>if they follow the published checklist</small></td><td><span class="pill ok">Legal</span></td></tr>
+
+      <tr class="group"><td colspan="4">Judgement about the specific company</td></tr>
+      <tr><td>Applicability result<small>"you are an important entity under NIS2", "this model is high-risk"</small></td><td><span class="pill amb">Lawyer signs</span><small>computed by lawyer-authored rules, released by the firm</small></td><td><span class="pill ok">Legal</span><small>deterministic rules only; individual reasoning goes to the lawyer</small></td><td><span class="pill ok">Legal</span><small>labelled "not legal advice"</small></td></tr>
+      <tr><td>Case-specific explanations<small>"in your case you need a DPIA because ..."</small></td><td><span class="pill amb">Lawyer signs</span></td><td><span class="pill amb">Lawyer signs</span></td><td><span class="pill ok">Legal</span><small>Italy: the firm must disclose its AI use</small></td></tr>
+      <tr><td>Compliance rating or "gap closed"</td><td><span class="pill amb">Lawyer signs</span></td><td><span class="pill amb">Lawyer signs</span></td><td><span class="pill ok">Legal</span><small>buyers still want a lawyer's name</small></td></tr>
+      <tr><td>Written confirmation of compliance</td><td><span class="pill amb">Lawyer signs</span></td><td><span class="pill amb">Lawyer signs</span></td><td><span class="pill amb">Lawyer signs</span></td></tr>
+
+      <tr class="group"><td colspan="4">Lawyers in the workspace</td></tr>
+      <tr><td>AI drafts for the lawyer to review</td><td><span class="pill ok">Legal</span><small>OGH allowed AI recommendations to lawyers</small></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span><small>Italy: AI as support, lawyer's work prevails</small></td></tr>
+      <tr><td>"Ask the lawyer" inside the loop<small>covered by a framework mandate signed at onboarding</small></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>Recommending firms, also by algorithm</td><td><span class="pill ok">Legal</span><small>client picks from a list</small></td><td><span class="pill ok">Legal</span><small>not paid for the recommendation</small></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>Signature trail: who signed what, when</td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+
+      <tr class="group"><td colspan="4">Money</td></tr>
+      <tr><td>Company pays Regulift a platform subscription and regulation modules</td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>Firm pays Regulift a flat yearly workspace fee</td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>Firm bills the company directly for legal work</td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td><td><span class="pill ok">Legal</span></td></tr>
+      <tr><td>Fee per mandate or per lead paid by the firm</td><td><span class="pill bad">Critical</span><small>Austria OGH 2023; France bar rules; Czechia bans brokering</small></td><td><span class="pill bad">Critical</span><small>void under BGH IX ZR 89/23</small></td><td><span class="pill open">Open</span><small>Netherlands conditional, Italy bans commissions; keep one EU model</small></td></tr>
+      <tr><td>A share of the lawyer's fees, or collecting the client's money for the firm</td><td><span class="pill bad">Critical</span></td><td><span class="pill bad">Critical</span></td><td><span class="pill bad">Critical</span><small>Italy CDF art. 37</small></td></tr>
+      <tr><td>Regulift owns a stake in a partner firm</td><td><span class="pill bad">Critical</span><small>Austria RAO § 21c since Aug 2026</small></td><td><span class="pill bad">Critical</span><small>BRAO § 59i</small></td><td><span class="pill open">Open</span><small>Italy allows up to one third; avoid anyway</small></td></tr>
+      <tr><td>Partner lawyers invest in Regulift</td><td><span class="pill open">Open</span><small>ask the Austrian Bar</small></td><td><span class="pill open">Open</span></td><td><span class="pill open">Open</span></td></tr>
+
+      <tr class="group"><td colspan="4">Words</td></tr>
+      <tr><td>Calling Regulift's own output "rechtssicher", a "legal check", or "compliant"</td><td><span class="pill bad">Critical</span><small>invites bar complaints under unfair-competition law</small></td><td><span class="pill bad">Critical</span></td><td><span class="pill amb">Lawyer signs</span><small>fine when the statement is the firm's</small></td></tr>
+      <tr><td>Marking AI interaction and AI-generated text as such</td><td><span class="pill ok">Legal</span><small>required by AI Act Art. 50 since Aug 2026</small></td><td><span class="pill ok">Legal</span><small>required</small></td><td><span class="pill ok">Legal</span><small>required</small></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- 3. loop -->
+<section id="loop">
+  <div class="metarow"><span class="meta">3. The improvement loop</span><span class="meta">Feedback without advice</span></div>
+  <h2>Customers iterate until they are ready. Most feedback is not legal advice.</h2>
+  <p class="intro">Every upload needs an answer within seconds, not after a lawyer has looked. That works because the loop has four layers, and only the last one is reserved to lawyers in strict countries.</p>
+  <div class="loop">
+    <div class="card"><h3>Technical status <span class="pill ok">Legal</span></h3><p>Engineering feedback against a checklist. Control platforms show this to German and Austrian customers today without lawyers. It is the bulk of NIS2, CRA and GDPR security work.</p></div>
+    <div class="card"><h3>Mechanical comparison <span class="pill ok">Legal</span></h3><p>"Evidence present or missing for item 14." The checklist and its acceptance criteria are the firm's. Regulift matches and flips the status as the customer fixes things. Progress reads "38 of 52 items", never "compliant".</p></div>
+    <div class="card"><h3>Generic guidance and templates <span class="pill ok">Legal</span></h3><p>The AI explains the rule in general and fills the firm's templates with the company's facts. A form generator working from the firm's forms. In Austria, show it as the firm's material.</p></div>
+    <div class="card"><h3>Individual judgement <span class="pill amb">Lawyer signs</span></h3><p>"Your scoring model is high-risk." "You now comply." The AI drafts, the lawyer releases. Needed at the start (scoping), at the end (confirmation), and for exceptions in between.</p></div>
+  </div>
+  <div class="two">
+    <div class="list">
+      <h3>How we keep it fast</h3>
+      <ul>
+        <li><b>Framework mandate at onboarding.</b> The company signs a direct engagement with the partner firm on day one, at a flat or capped fee the firm sets and bills. Every grey-zone question in the loop is then covered, and the lawyer answers inside the workspace within an agreed time.</li>
+        <li><b>Two lawyer touchpoints by design.</b> Scoping at the start, confirmation at the end. Everything between is self-service against the firm's checklist, with an "ask the lawyer" button.</li>
+        <li><b>The AI drafts everything the lawyer signs.</b> The lawyer reviews instead of writing from a blank page. That is where the hours drop, and where the 60% target comes from.</li>
+      </ul>
+    </div>
+    <div class="list">
+      <h3>What the AI may write on its own</h3>
+      <ul>
+        <li><b>Yes:</b> technical remediation steps, filled templates, general explanations of the law with the article quoted, drafts for the lawyer.</li>
+        <li><b>Only with a lawyer's click in strict markets:</b> anything that reasons about the company's specific facts, and any sentence that judges compliance.</li>
+        <li><b>Always:</b> every generated sentence links to the article and the evidence it rests on. Ungrounded output is not shown. AI text is labelled as AI text.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 4. UI rules -->
+<section id="ui">
+  <div class="metarow"><span class="meta">4. What this means in the interface</span><span class="meta">Four rules, one country setting</span></div>
+  <h2>Two labels on every statement</h2>
+  <div class="ui">
+    <div class="card"><h3>Label 1</h3><p><span class="tag">Prepared by Regulift</span></p><p>Facts, evidence, gap status, technical guidance, filled templates. Shown immediately, everywhere.</p></div>
+    <div class="card mist"><h3>Label 2</h3><p><span class="tag signed">Signed by Firm, 18 Oct 2026</span></p><p>Applicability, case-specific explanations, ratings, the confirmation. In closed markets these wait for the signature. In Germany and open markets more shows at once, with a "not legal advice" label.</p></div>
+    <div class="card"><h3>Country setting</h3><p>One setting per customer country decides which outputs need Label 2 before the customer sees them. Build the closed-market version first. Moving to Germany or Italy means switching features on, never off.</p></div>
+    <div class="card"><h3>Citations and AI labels</h3><p>Every sentence links to its article and its evidence item. AI-generated text and AI interaction are marked, which the AI Act requires since August 2026. A chatbot's answers are legally the company's own (OLG Hamm, May 2026), so gates matter, disclaimers do not.</p></div>
+  </div>
+</section>
+
+<!-- 5. money -->
+<section id="money">
+  <div class="metarow"><span class="meta">5. Who pays whom</span><span class="meta">Prices are our proposal within researched ranges</span></div>
+  <h2>Three layers of revenue, none of them tied to legal fees</h2>
+  <div class="cards">
+    <div class="card"><h3>Platform <span class="pill ok">Legal</span></h3><p><b>€3,600 to €14,400 a year</b> by company size (10 to 49 staff €3,600, 50 to 249 €7,200, 250 to 1,000 €14,400). Connectors, context report, inventory, evidence record and the GDPR checklist.</p></div>
+    <div class="card"><h3>Regulation modules <span class="pill ok">Legal</span></h3><p><b>€1,800 to €6,000 per regulation a year</b> by size: NIS2, AI Act, DORA for suppliers, CRA. A mid-sized company with three modules lands at €14,400 to €18,000. Per-framework pricing is the market norm (StartComply €4,500, Drata USD 7,500 per framework).</p></div>
+    <div class="card"><h3>Partner law firms <span class="pill ok">Legal</span></h3><p><b>Flat yearly workspace fee</b>, the same for every firm, priced for seats, storage and integrations. The level is not backed by any source yet and comes from the first partner talks. The firm bills the client directly for its legal work.</p></div>
+    <div class="card"><h3>Never <span class="pill bad">Critical</span></h3><ul><li>A fee per mandate or per lead (void in Germany since BGH IX ZR 89/23; banned in Austria, France, Czechia).</li><li>A percentage of the lawyer's fees.</li><li>Collecting or forwarding the client's legal fees.</li><li>A stake in a law firm or a share of its profit.</li></ul></div>
+  </div>
+</section>
+
+<!-- 6. markets -->
+<section id="markets">
+  <div class="metarow"><span class="meta">6. Which markets, in which order</span><span class="meta">And what changes at each border</span></div>
+  <h2>Austria first, then Germany, then Italy. Budapest for pilots.</h2>
+  <div class="cards">
+    <div class="card mist"><h3>Austria, 2026 to 2027</h3><ul><li>NIS2 law live since 1 Oct 2026, registration due within three months: the freshest trigger in Europe.</li><li>One founder on the ground, Vienna under three hours from Budapest.</li><li>Expensive lawyers (about €349/h tariff), so the savings pitch lands.</li><li>Strictest rules: what passes here passes everywhere. Build the closed-market version here.</li></ul></div>
+    <div class="card"><h3>Germany, H2 2027</h3><ul><li>80,043 firms with 50+ staff, ten times Austria.</li><li>Same language, same legal logic, plus the Smartlaw safe harbour: more shows without a signature.</li><li>New: a German partner firm and the German NIS2 rule set. Entry through firms, because the field is crowded.</li></ul></div>
+    <div class="card"><h3>Italy, 2028</h3><ul><li>31,851 firms with 50+ staff and a native-speaking founder.</li><li>Open rules on advice; the firm must disclose its AI use (Law 132/2025).</li><li>Cheaper lawyers, so lead with readiness and speed. Start in the north.</li></ul></div>
+    <div class="card"><h3>Hungary, throughout</h3><ul><li>Pilot and engineering base, not a revenue market: legal spend a quarter of Austria's, criminal risk for unauthorised advice.</li><li>Its two-yearly compulsory NIS2 audit is a perfect test for the evidence pack.</li></ul></div>
+  </div>
+  <p class="intro">What travels unchanged: the product, the evidence, the legal structure, GDPR, AI Act, DORA and CRA (one text everywhere). What is new per country: the national NIS2 rule set, the partner firm, the country setting for the labels, and the sales motion. The Netherlands is the best English-language fourth market; France has no NIS2 law yet; Switzerland is outside both NIS2 and the AI Act.</p>
+</section>
+
+<!-- 7. build plan -->
+<section id="plan">
+  <div class="metarow"><span class="meta">7. What to build first</span><span class="meta">The Austrian version, in 90 days</span></div>
+  <h2>Build the strict version, then unlock</h2>
+  <div class="steps">
+    <div class="step"><span class="n">Days 1 to 30</span><h3>Prove the pain</h3><p>15 discovery interviews in Austria and Budapest. Letter of intent from one Vienna law firm, which reviews this structure. Collector prototype: GitHub and one cloud provider, read-only, context report generated and approved.</p></div>
+    <div class="step"><span class="n">Days 31 to 60</span><h3>Prove the flow</h3><p>Two design partners connect real systems. The firm's GDPR and NIS2 checklists are live with acceptance criteria. Gap view, technical guidance and the signature trail work end to end.</p></div>
+    <div class="step"><span class="n">Days 61 to 90</span><h3>Prove the value</h3><p>First evidence pack confirmed in writing by the firm. Lawyer hours measured against the firm's own quote. Pricing tested with both partners. Company incorporated, aws Preseed application prepared.</p></div>
+    <div class="step"><span class="n">Months 4 to 12</span><h3>Scale the loop</h3><p>HR and CRM connectors. AI Act module and templates. Ten paying pilots in Austria, second firm. German partner firm signed, German rule set, country setting switched to "strict with safe harbour".</p></div>
+  </div>
+  <div class="two">
+    <div class="list">
+      <h3>MVP scope, in one list</h3>
+      <ul>
+        <li><b>Collector</b> with MCP connectors for GitHub and one cloud, read-only scopes, context report, representative approval.</li>
+        <li><b>Inventory and evidence record</b> with links to sources and continuous re-reading.</li>
+        <li><b>Firm checklist engine</b>: GDPR, NIS2, AI Act items with acceptance criteria, authored and published under the firm's name.</li>
+        <li><b>Gap view and technical guidance</b>, shown instantly. Templates filled from the inventory.</li>
+        <li><b>Lawyer workspace</b>: drafts queue, sign and release, signature trail, "ask the lawyer".</li>
+        <li><b>Country setting</b> that gates which outputs wait for a signature. Default: closed market.</li>
+      </ul>
+    </div>
+    <div class="list">
+      <h3>Not in the MVP</h3>
+      <ul>
+        <li>Any output that judges the company without a lawyer's signature.</li>
+        <li>DORA, CRA and Data Act modules (next, in that order).</li>
+        <li>Billing between company and firm. The firm invoices directly.</li>
+        <li>A data protection officer service (possible later in Austria for non-lawyers, with legal tasks going to the firm).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 8. open -->
+<section id="open">
+  <div class="metarow"><span class="meta">8. Still open</span><span class="meta">Settle these with the first partner firm</span></div>
+  <h2>Six questions for an Austrian lawyer</h2>
+  <div class="cards">
+    <div class="card"><h3>Checklist pattern <span class="pill open">Open</span></h3><p>Confirm that a gap view against a firm-authored checklist counts as mechanical comparison, not advice, given the Vienna ruling that treated even legal information as reserved.</p></div>
+    <div class="card"><h3>Templates and explanations <span class="pill open">Open</span></h3><p>Confirm the "firm's material delivered through Regulift" framing for filled templates and general explanations of the law.</p></div>
+    <div class="card"><h3>Framework mandate <span class="pill open">Open</span></h3><p>Draft the day-one engagement between company and firm that covers questions during the loop at a flat or capped fee.</p></div>
+    <div class="card"><h3>Workspace fee level <span class="pill open">Open</span></h3><p>No source gives a price. Set it with the first two firms, priced for seats, storage and integrations, identical for every firm.</p></div>
+    <div class="card"><h3>Lawyers as investors <span class="pill open">Open</span></h3><p>Whether partner lawyers may hold shares in Regulift was not researched. Ask the Austrian Bar before any round that includes lawyers.</p></div>
+    <div class="card"><h3>AI tools and the bar <span class="pill open">Open</span></h3><p>No Austrian court has ruled on AI in legal work. The risk is a bar complaint under unfair-competition law, not a criminal case. Keep the gates, keep the labels, keep the firm's name on the judgements.</p></div>
+  </div>
+</section>
+
+<footer><span><b>regulift</b> &nbsp; Regulation, lifted.</span><span>Built from research-regulations.md, research-countries.md and research-commercial.md (18 Oct 2026). Research, not legal advice. Companion page: EU compliance rules by country.</span></footer>
+</main>
+
+</body></html>
