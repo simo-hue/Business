@@ -15,7 +15,7 @@ if (!reducedMotion && 'IntersectionObserver' in window) {
       }
     });
   }, { threshold: 0.08 });
-  document.querySelectorAll('.statement, .band, .photo-grid li, .figures, .columns > div, .principles > div, .compare, .steps li, .flow, .article-body > *, .human-photo, .human-text, .faq-list, .early-panel, .founders-grid').forEach(section => {
+  document.querySelectorAll('.statement, .section-title, .band, .photo-grid li, .figures, .columns > div, .principles > div, .compare, .steps li, .flow, .article-body > *, .human-photo, .human-text, .faq-list, .early-panel, .founders-grid').forEach(section => {
     section.classList.add('reveal');
     observer.observe(section);
   });
