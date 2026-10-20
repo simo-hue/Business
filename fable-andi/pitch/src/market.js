@@ -42,10 +42,10 @@ function frame(kicker, kicker2, title, lead, notes) {
 
 // ---------- slide 1: analysis ----------
 const CRIT = [
-  { name: "Adviser legal", sub: "software answers directly" },
+  { name: "AI may advise", sub: "legal without a lawyer signing" },
   { name: "Market size", sub: "firms with 50 or more staff" },
-  { name: "Savings potential", sub: "lawyer prices" },
-  { name: "Trigger freshness", sub: "NIS2 window, enforcement" },
+  { name: "Savings potential", sub: "on lawyer cost" },
+  { name: "New regulation enforcement", sub: "deadline live, fines starting" },
 ];
 const ROWS = [ // sorted by total, ties broken by the gate score, then name; Switzerland last as outside the EU
   { c: "Netherlands", st: "open", s: [5, 4, 4, 5] },
@@ -81,13 +81,25 @@ function analysis(callout) {
     head(s, "7 of 10", { x: kx + 0.3, y: ky + 0.18, w: kw - 0.6, h: 0.5, fontSize: 30, color: T.paper, charSpacing: -1 });
     tb(s, "pass the gate. Italy partly, Germany and Austria only through the firm.", { x: kx + 0.3, y: ky + 0.66, w: kw - 0.6, h: 0.45, fontSize: 11.5, color: "B7C4C7" });
   }
+  // legend, right of the title: what the grey rows and the mist column mean
+  {
+    const lx = W - M - 6.2, lw = 6.2, ly = 1.62;
+    const swatchRow = (y, fill, line, text) => {
+      rrect(s, lx, y + 0.04, 0.55, 0.22, fill, line, 0.05);
+      tb(s, text, { x: lx + 0.75, y, w: lw - 0.75, h: 0.5, fontSize: 12, color: T.ink2 });
+    };
+    swatchRow(ly, T.white, T.line, [{ text: "Grey rows ", options: { fontFace: HEAD, color: T.ink } }, { text: "fail the gate." }]);
+    for (let d = 0; d < 3; d++) s.addShape(pres.ShapeType.ellipse, { x: lx + 0.1 + d * 0.13, y: ly + 0.1, w: 0.1, h: 0.1, fill: { color: d < 2 ? T.muted : T.line }, line: { color: d < 2 ? T.muted : T.line, width: 0 } });
+    swatchRow(ly + 0.55, T.white, T.line, [{ text: "Black rows ", options: { fontFace: HEAD, color: T.ink } }, { text: "pass the gate." }]);
+    for (let d = 0; d < 3; d++) s.addShape(pres.ShapeType.ellipse, { x: lx + 0.1 + d * 0.13, y: ly + 0.65, w: 0.1, h: 0.1, fill: { color: T.ink }, line: { color: T.ink, width: 0 } });
+  }
   // header
-  tb(s, "Country", { x: cx[0] + 0.3, y: ty, w: 3.0, h: 0.35, fontSize: 14, fontFace: HEAD, color: T.ink });
+  tb(s, "Country", { x: cx[0] + 0.3, y: ty, w: 3.0, h: 0.35, fontSize: 13, fontFace: HEAD, color: T.ink });
   CRIT.forEach((c, i) => {
-    s.addText([{ text: c.name + " " }, { text: String(i + 1), options: { superscript: true, color: T.ink2 } }], { x: cx[i + 1], y: ty, w: cw, h: 0.35, fontSize: 14, fontFace: HEAD, color: T.ink, margin: 0, isTextBox: true, valign: "top" });
+    s.addText([{ text: c.name + " " }, { text: String(i + 1), options: { superscript: true, color: T.ink2 } }], { x: cx[i + 1], y: ty, w: 2.75, h: 0.35, fontSize: 13, fontFace: HEAD, color: T.ink, margin: 0, isTextBox: true, valign: "top", wrap: false });
     tb(s, c.sub, { x: cx[i + 1], y: ty + 0.33, w: cw, h: 0.3, fontSize: 11.5, color: T.muted });
   });
-  tb(s, "Total", { x: cx[5], y: ty, w: 2.7, h: 0.35, fontSize: 14, fontFace: HEAD, color: T.ink });
+  tb(s, "Total", { x: cx[5], y: ty, w: 2.7, h: 0.35, fontSize: 13, fontFace: HEAD, color: T.ink });
   tb(s, "of 20", { x: cx[5], y: ty + 0.33, w: 2.7, h: 0.3, fontSize: 11.5, color: T.muted });
   rule(s, M, ty + 0.72, CW, T.ink);
   // rows
@@ -123,10 +135,10 @@ function analysis(callout) {
   const P = t => ({ text: t });
   const BR = { text: "", options: { breakLine: true } };
   const runs = [
-    K("1  Adviser legal  "), P("NL "), L("wetten.overheid.nl", "https://wetten.overheid.nl/BWBR0002093/2026-01-01"), P("  SE "), L("riksdagen.se", "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-1985354-om-forbud-mot-juridiskt-eller_sfs-1985-354/"), P("  DK "), L("retsinformation.dk", "https://www.retsinformation.dk/eli/lta/2025/1298/pdf"), P("  FI "), L("finlex.fi", "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute-consolidated/1958/496/fin@20250543"), P("  PL "), L("sejm.gov.pl", "https://api.sejm.gov.pl/eli/acts/DU/2026/1290/text.pdf"), P("  BE "), L("ejustice.just.fgov.be", "https://www.ejustice.just.fgov.be/eli/loi/1967/10/10/1967101053/justel"), P("  CH "), L("fedlex.admin.ch", "https://www.fedlex.admin.ch/eli/cc/2002/153/de"), P("  DE "), L("gesetze-im-internet.de", "https://www.gesetze-im-internet.de/rdg/"), P(", "), L("bundesgerichtshof.de", "https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2021/2021171.html"), P("  IT "), L("normattiva.it", "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2012-12-31;247~art2"), P("  AT "), L("ris.bka.gv.at", "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001673&Paragraf=8"), BR,
+    K("1  AI may advise  "), P("NL "), L("wetten.overheid.nl", "https://wetten.overheid.nl/BWBR0002093/2026-01-01"), P("  SE "), L("riksdagen.se", "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-1985354-om-forbud-mot-juridiskt-eller_sfs-1985-354/"), P("  DK "), L("retsinformation.dk", "https://www.retsinformation.dk/eli/lta/2025/1298/pdf"), P("  FI "), L("finlex.fi", "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute-consolidated/1958/496/fin@20250543"), P("  PL "), L("sejm.gov.pl", "https://api.sejm.gov.pl/eli/acts/DU/2026/1290/text.pdf"), P("  BE "), L("ejustice.just.fgov.be", "https://www.ejustice.just.fgov.be/eli/loi/1967/10/10/1967101053/justel"), P("  CH "), L("fedlex.admin.ch", "https://www.fedlex.admin.ch/eli/cc/2002/153/de"), P("  DE "), L("gesetze-im-internet.de", "https://www.gesetze-im-internet.de/rdg/"), P(", "), L("bundesgerichtshof.de", "https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2021/2021171.html"), P("  IT "), L("normattiva.it", "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2012-12-31;247~art2"), P("  AT "), L("ris.bka.gv.at", "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001673&Paragraf=8"), BR,
     K("2  Market size  "), P("Eurostat sbs_sc_ovw 2024 "), L("ec.europa.eu/eurostat", "https://ec.europa.eu/eurostat/databrowser/view/sbs_sc_ovw/default/table"), P("  CH "), L("bfs.admin.ch", "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36734571/master"), BR,
     K("3  Savings potential  "), P("Eurostat sbs_ovw_act, tps00001 "), L("ec.europa.eu/eurostat", "https://ec.europa.eu/eurostat/databrowser/view/sbs_ovw_act/default/table"), P("  BE, IT, PL "), L("e-justice.europa.eu", "https://e-justice.europa.eu/topics/taking-legal-action/where-and-how/costs_en"), P(" (2007)"), BR,
-    K("4  Trigger freshness  "), P("NL "), L("rdi.nl", "https://www.rdi.nl/actueel/nieuws/2026/08/15/de-cyberbeveiligingswet-treedt-in-werking"), P("  SE "), L("riksdagen.se", "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/cybersakerhetslag-20251506_sfs-2025-1506/"), P("  DK "), L("retsinformation.dk", "https://www.retsinformation.dk/eli/lta/2025/434"), P("  FI "), L("finlex.fi", "https://www.finlex.fi/fi/lainsaadanto/2025/124"), P("  PL "), L("sejm.gov.pl", "https://api.sejm.gov.pl/eli/acts/DU/2026/252"), P("  DE "), L("bsi.bund.de", "https://www.bsi.bund.de/DE/Service-Navi/Presse/Pressemitteilungen/Presse2025/251205_NIS-2-Umsetzungsgesetz_in_Kraft.html"), P("  IT "), L("gazzettaufficiale.it", "https://www.gazzettaufficiale.it/eli/id/2024/10/01/24G00155/sg"), P("  AT "), L("ris.bka.gv.at", "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40273890/NOR40273890.pdf"), P("  EU "), L("digital-strategy.ec.europa.eu", "https://digital-strategy.ec.europa.eu/en/policies/nis-transposition"), BR,
+    K("4  New regulation enforcement  "), P("NL "), L("rdi.nl", "https://www.rdi.nl/actueel/nieuws/2026/08/15/de-cyberbeveiligingswet-treedt-in-werking"), P("  SE "), L("riksdagen.se", "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/cybersakerhetslag-20251506_sfs-2025-1506/"), P("  DK "), L("retsinformation.dk", "https://www.retsinformation.dk/eli/lta/2025/434"), P("  FI "), L("finlex.fi", "https://www.finlex.fi/fi/lainsaadanto/2025/124"), P("  PL "), L("sejm.gov.pl", "https://api.sejm.gov.pl/eli/acts/DU/2026/252"), P("  DE "), L("bsi.bund.de", "https://www.bsi.bund.de/DE/Service-Navi/Presse/Pressemitteilungen/Presse2025/251205_NIS-2-Umsetzungsgesetz_in_Kraft.html"), P("  IT "), L("gazzettaufficiale.it", "https://www.gazzettaufficiale.it/eli/id/2024/10/01/24G00155/sg"), P("  AT "), L("ris.bka.gv.at", "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40273890/NOR40273890.pdf"), P("  EU "), L("digital-strategy.ec.europa.eu", "https://digital-strategy.ec.europa.eu/en/policies/nis-transposition"), BR,
   ];
   s.addText(runs, { x: M, y: 9.35, w: CW, h: 1.1, fontFace: BODY, fontSize: 9.5, color: T.muted, margin: 0, isTextBox: true, valign: "top", paraSpaceAfter: 3 });
 }

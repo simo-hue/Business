@@ -1,7 +1,43 @@
 # Deck build
 
-`build.js` plus `content.js` generate `../regulift-eit-lab-pitch.pptx` (cover plus ten content slides) with pptxgenjs, in the website's tokens (Geist, egg-white paper, ink, mist, teal). All copy and every figure with its source live in `content.js`; `build.js` only lays them out. The earlier 24-slide generator is in `../archive/src-24-slides/`.
+Two generations live here.
 
-To rebuild: in a folder with `npm install pptxgenjs` done, set `NODE_PATH` to its `node_modules`, `PPTX_SKILL` to a checkout of the pptx skill (for `apply_theme.js`), and create the `img/` folder next to `build.js` from `regulift/dist/assets` (rounded PNGs, recipes in `../../HANDOFF-pitch-deck.md`), then `node build.js`. `render.sh` runs the full build, validate and render loop and writes the PDF. Install Geist locally so LibreOffice renders the PDF with the right face.
+## Current: `regulift-deck.pptx` (20 Oct 2026)
 
-Research behind the strategy and commercial slides: `../../FILES/research-regulations.md`, `../../FILES/research-countries.md`, `../../FILES/research-commercial.md`, and `../../FILES/number-claims-sources.md`.
+Simone's Canva export (`assets/simone-deck-2026-10-19.pptx`, Poppins, 20 x 11.25 in) plus five
+generated slides: the gate table, Germany, the Netherlands map, the business model, why us.
+
+```bash
+pitch/src/build-deck.sh [render dir]
+```
+
+What it does, in order:
+
+1. `strategy.js` (pptxgenjs, run from `~/deckbuild` with its `node_modules`) writes
+   `pitch/strategy-slides.pptx`. All copy, prices and sources are in this file. Fonts: "Poppins"
+   with the bold flag, so PowerPoint, Canva and LibreOffice all resolve the weight.
+2. `assemble.py` drops Simone's packages slide, inserts the five slides after her slide 4, copies
+   her nav bar and page pill onto each (the "Why us" slide gets "Team" active), renumbers all page
+   pills, and writes `../../regulift-deck.pptx`.
+3. The pptx validator runs against the template, then LibreOffice renders every slide to JPEG in
+   the render dir.
+
+Assets: `assets/map-nl.png` is rendered from `map-render.html` in a browser (704 x 481 CSS px at
+zoom 4, so 2816 x 1924). `assets/andreas.png` and `assets/simone.png` come from Simone's deck.
+`strategy-draft.html` is the approved HTML draft (also published as a claude.ai artifact).
+
+PNG exports of the five slides at 4000 px for Canva: `pitch/export/`.
+
+Rendering needs Poppins installed (`~/.local/share/fonts/Poppins`) and the fontconfig alias in
+`~/.config/fontconfig/fonts.conf` that maps "Poppins Bold" to the family.
+
+## Previous: the 18 Oct decks
+
+`build.js` plus `content.js` generate `../regulift-eit-lab-pitch.pptx` (Geist, website tokens).
+`market.js` and `product.js` generate the strategy slides spliced into `../../regulift-central.pptx`
+by `merge.py`; `replace.py` and `render-central.sh` rebuild one slide of that deck in place.
+`archive/src-24-slides/` holds the 24-slide generator. Recipes in `../../HANDOFF-pitch-deck.md`.
+
+Research behind the strategy and commercial slides: `../../FILES/research-regulations.md`,
+`../../FILES/research-countries.md`, `../../FILES/research-commercial.md`, and
+`../../FILES/number-claims-sources.md`.
