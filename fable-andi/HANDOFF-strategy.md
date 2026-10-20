@@ -281,3 +281,81 @@ Scope note: this session sets strategy for the application and the slides. Nothi
    slides are shifted down 0.5 in, lose their own kicker row and footer, and get the deck's nav
    bar and page pill; pages renumbered. Merge script: `pitch/src/merge.py` (lxml), run against an
    unpacked copy of the central deck. Sources: `pitch/market-slides.pptx`, `pitch/product-slides.pptx`.
+
+## 10. Decisions from the strategy grilling (19 to 20 October 2026, night session)
+
+Scope: the strategy for the EIT Lab application (due 21 Oct 2026 17:00 CEST) and the deck that
+carries it. Andi decided each point; recommendations were given and taken unless noted.
+
+1. **Core idea.** Regulift is a tech company. Lawyers are partners, never staff, never the product.
+   Build the full adviser where the law lets it speak, prove it sells on its own, copy it to every
+   open market with a partner firm and a country pack, then ship the gated version to Germany and
+   the closed markets. Germany is the destination from day one, not the start.
+2. **Market order.** Netherlands first, Sweden second, Germany as the first country pack (an
+   upgrade Dutch customers buy), direct German sales after that. The handoff's "first Expand pack
+   is Netherlands to Sweden" is replaced: the first pack is Germany.
+3. **Proof before copying.** Five paying Dutch customers plus a measured savings number (lawyer
+   hours against the firm's quote) by end of June 2027 opens Sweden. Dates stay off the slides.
+4. **Customer acquisition.** Firm first for speed, direct in parallel; at least two of the five
+   must come without the firm. Lawyer side is "bring your own lawyer, plus partners": any firm can
+   be invited into a workspace; partner firms are the safety net for a customer whose own lawyer
+   resists losing hours.
+5. **Who pays.** Companies pay. Firms use the workspace free until the platform demonstrably earns
+   them mandates and saves them hours; a workspace fee comes later, where clearly lawful.
+6. **Entry product.** NIS2 readiness with evidence, sold to companies in scope and unregistered or
+   asked by covered customers; the platform underneath. No NIS2 fines exist anywhere yet
+   (verified 19 Oct, see the enforcement research in the conversation): sell readiness, not fear.
+7. **Defensibility.** The inside-out evidence graph and the legal gate are the core; the firm
+   network is the moat that grows.
+8. **Never list (six).** No fee per mandate or lead; no share of lawyer fees; no client money and
+   no stake in a firm; no answer without its evidence; no answer where the law reserves it; no
+   lawyer advising a customer on Regulift's behalf.
+9. **Seat.** Austria (aws Preseed, FFG). Estonia e-residency checked and dropped: taxed where
+   managed, loses the Austrian grants. Not part of the strategy story.
+10. **Lab money.** Into the product. The plan opens with legal verification: the first partner
+    firm reviews the model before launch and the product is aligned to what it confirms.
+11. **Difficulties.** Shown as one short line per slide where they fit; the separate "what has
+    to be true" slide was cut for concision. Tests to keep in speaker notes: questionnaire demand
+    in discovery, a Dutch presence, a firm contract without exclusivity, a Dutch customer accepting
+    the German handoff, an insurance quote for the adviser.
+12. **Business model slide.** Three layers: platform €1,800 / €3,600 / €7,200 a year (GDPR
+    included), modules from €1,800 a year per regulation (NIS2 entry; AI Act, CRA, DORA, Data Act,
+    more), country packs from €600 a year. Prices halved from section 2 on Andi's request to show
+    that growth and borders cost little; marked "proposed". Comparison column: 40 lawyer hours at
+    €244 (BRAK STAR 2024) ≈ €9,800 per law per country, against €5,400 a year, +€1,800 per law,
+    +€600 per country. Closing line: cheaper compliance makes European companies more competitive.
+    Open for Andi: the three tiers, the €600 pack, the 40-hour assumption (alternative anchor: the
+    €3,900 fixed NIS2 opinion).
+13. **Founders slide.** "Why us": Andreas builds the product (AI integrations, connectors, data to
+    LLM, RAG in production, has seen compliance complicate every integration); Simone builds the
+    market (customers, partners, discovery, EIT Digital Master School). Band: a European generation
+    that wants to bring something forward, cheaper compliance makes Europe more competitive.
+    Copy is a draft to adapt on 20 Oct.
+
+## 11. The deck as built on 20 October 2026
+
+Base: Simone's Canva export `pitch/src/assets/simone-deck-2026-10-19.pptx` (from
+`~/Downloads/slides.pptx.pptx`, 7 slides, Poppins, 20 x 11.25 in). Her "Four to start" packages
+slide is dropped. Output: `regulift-deck.pptx` and `regulift-deck.pdf` at the repo root, 11 slides:
+
+01 Regulift · 02 Compliance is still guesswork · 03 Inside-out framework · 04 The compliance loop ·
+05 Four criteria, one is a gate · 06 Germany is the goal, why not start there · 07 So we start in
+the Netherlands · 08 Enter with NIS2, grow with every law · 09 Why us · 10 Join early access ·
+11 Thanks.
+
+Build (see `pitch/src/README.md`): `pitch/src/build-deck.sh` runs `strategy.js` (pptxgenjs, the
+five new slides), `assemble.py` (splices them into Simone's deck with her nav bar and page pill,
+renumbers pages), validates and renders. PNG exports of the five slides at 4000 px for Canva are
+in `pitch/export/`. The HTML draft the slides were approved from is `pitch/src/strategy-draft.html`
+(artifact https://claude.ai/artifact/Je6fbxrdVtz6kMd6boGpHD); the map is rendered from
+`pitch/src/map-render.html` to `pitch/src/assets/map-nl.png`.
+
+Verification done: pptx validator passes against the template; every slide rendered through
+LibreOffice with Poppins installed (fontconfig maps "Poppins Bold" to the family) and checked by
+eye; Simone's own slides unchanged. Not verified: how PowerPoint and Canva render the generated
+slides on another machine. Fonts are not embedded in the generated slides; Simone's deck embeds
+hers, so Canva and PowerPoint with Poppins installed should match.
+
+Housekeeping: `regulift-central.pptx` (the 18 Oct deck) and `market-slides.pptx` carry the
+legend and renamed columns from 19 Oct; nothing is committed. Close the old deck in Impress before
+any further build; an Impress save at 22:52 on 19 Oct overwrote it once and was restored from git.
