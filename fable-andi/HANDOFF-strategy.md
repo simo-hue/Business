@@ -340,8 +340,8 @@ slide is dropped. Output: `regulift-deck.pptx` and `regulift-deck.pdf` at the re
 
 01 Regulift · 02 Compliance is still guesswork · 03 Inside-out framework · 04 The compliance loop ·
 05 Four criteria, one is a gate · 06 Germany is the goal, why not start there · 07 So we start in
-the Netherlands · 08 Enter with NIS2, grow with every law · 09 Why us · 10 Join early access ·
-11 Thanks.
+the Netherlands · 08 Enter with NIS2, grow with every law · 09 Where we stand (was Why us until
+20 Oct, see section 12) · 10 Join early access · 11 Thanks.
 
 Build (see `pitch/src/README.md`): `pitch/src/build-deck.sh` runs `strategy.js` (pptxgenjs, the
 five new slides), `assemble.py` (splices them into Simone's deck with her nav bar and page pill,
@@ -359,3 +359,47 @@ hers, so Canva and PowerPoint with Poppins installed should match.
 Housekeeping: `regulift-central.pptx` (the 18 Oct deck) and `market-slides.pptx` carry the
 legend and renamed columns from 19 Oct; nothing is committed. Close the old deck in Impress before
 any further build; an Impress save at 22:52 on 19 Oct overwrote it once and was restored from git.
+
+## 12. Slide 09 redone on 20 October 2026 (morning): "Where we stand"
+
+Andi dropped the founders slide ("Why us", two photo cards) and replaced it with a next-steps
+slide. Decisions, from the grilling:
+
+1. One slide, full redo, no founder cards. Nav pill moves from "Team" to "Conclusion".
+2. Label "Next steps", title "Where we stand.", lead "Plan and validate first. Then build,
+   launch, grow." Four steps, no dates: Now (planning the product; validating the legal model
+   country by country), AI Entrepreneurs Lab (build the MVP: evidence graph, adviser, legal
+   gate), Launch (NIS2 readiness in the Netherlands; win customers and sign law firm partners in
+   parallel, neither waits for the other), Grow (Sweden next, Germany as a country pack, every
+   further regulation). Band "Our mission" (dark label block, mist panel, "competitive" in teal):
+   "Companies spend less on regulation and more on what makes them competitive."
+3. The legal validation is planned as a project in a law class at ELTE, Budapest. Submission
+   is not confirmed, so ELTE stays in the speaker notes and off the slide.
+4. Layout: option A of three (horizontal track, filled "Now" dot with a ring, teal Lab dot,
+   outlined later steps). HTML draft `pitch/src/next-steps-draft.html`, artifact
+   https://claude.ai/artifact/NiwXWpqcnXWYFAbXfFZSa9. The founders are now on no slide of
+   this deck; Simone's Canva version may carry its own team page.
+
+Build unchanged: `pitch/src/build-deck.sh`. Export for Canva: `pitch/export/regulift-09-where-we-stand.png`
+(the old `regulift-09-why-us.png` is removed).
+
+## 13. Slide 02 redone on 20 October 2026 (morning): the AI-first bridge
+
+Simone's "Compliance is still guesswork" slide is replaced by a generated one with the same
+content (title, lead, three pains: Questionnaires / Answers from memory, Stale evidence / Gaps go
+unseen, Legal overhead / Fact-finding repeats) plus a bridge to slide 03. Decisions:
+
+1. Both contents on one slide, followable left to right: "Today, outside-in" list of the three
+   pains on the left, an arrow, a mist panel on the right labelled Regulift with the bridge
+   sentence "AI-first compliance: the facts come from your systems, not from questionnaires." and
+   a footer "Next: the inside out framework."
+2. Chosen from three layouts (version 2, today against AI-first), then from three designs of it:
+   the mist panel of design A with the plain arrow of design C. Not black, by Andi's request.
+3. Title accent "guesswork." stays in Simone's rust; the flip is teal, so colour separates
+   problem from solution. Icons are rasterised from `pain-draft.html` into `assets/pain-*.png`.
+4. HTML draft `pitch/src/pain-draft.html`, artifact https://claude.ai/artifact/4WMZpxRxCgNiMxrtCWLDiB.
+   Export for Canva: `pitch/export/regulift-02-guesswork.png`.
+
+Assembler: PLAN entry 6 inserts the slide after Simone's slide 1 with "About" active; DROP now
+holds her slide2.xml and slide5.xml. Her nav hyperlinks that pointed at slide 2 are re-pointed to
+slide 1 by the existing drop logic.

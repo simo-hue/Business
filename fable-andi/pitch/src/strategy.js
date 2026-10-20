@@ -1,5 +1,5 @@
 // Strategy slides for Simone's deck (Canva export, 20 x 11.25 in, Poppins).
-// Generates five slides: the gate table, Germany, the Netherlands map, the business model, why us.
+// Generates six slides: the gate table, Germany, the Netherlands map, the business model, where we stand, and the pain points slide (replaces Simone's slide 2).
 // Nav bar and page pill are NOT drawn here: assemble.py copies them from Simone's slides.
 // Run from ~/deckbuild: NODE_PATH=$B/node_modules PPTX_SKILL=<skill> ASSETS=<assets dir> OUT=<file> node strategy.js
 const pptxgen = require("pptxgenjs");
@@ -35,7 +35,7 @@ function frame(kicker, title, accent, lead, opts) {
   opts = opts || {};
   const s = pres.addSlide({ masterName: "CONTENT" });
   T(s, UP(kicker), { x: M, y: 2.18, w: 10, h: 0.38, fontFace: BOLD, bold: true, fontSize: 17, color: C.teal, charSpacing: 1 });
-  s.addText([{ text: UP(title) + " ", options: { color: C.ink } }, { text: UP(accent), options: { color: C.teal } }],
+  s.addText([{ text: UP(title) + " ", options: { color: C.ink } }, { text: UP(accent), options: { color: opts.accentColor || C.teal } }],
     { x: M - 0.03, y: 2.73, w: CW, h: 0.95, fontFace: BOLD, bold: true, fontSize: 53, margin: 0, isTextBox: true, valign: "top", charSpacing: -1 });
   if (lead) T(s, lead, { x: M, y: 3.89, w: opts.leadW || CW, h: 0.46, fontSize: 19.5, color: C.muted });
   if (!opts.noRule) hr(s, M, 4.43, CW, C.line);
@@ -244,27 +244,85 @@ function sources(s, runs, y, h, size) {
 }
 
 // =====================================================================
-// Slide E: Why us
+// Slide E: Where we stand (replaces "Why us", 20 Oct 2026; HTML draft next-steps-draft.html, option A)
 // =====================================================================
 {
-  const s = frame("Team", "Why", "us.", "We have met this problem at work. Now we build the way out of it.",
-    { notes: "Founder-problem fit: Andreas builds the kind of system the product is; Simone owns customers and partners, which is what year one needs. Stage: live website, designed collector, researched legal map, legal model under verification, no customer yet, no firm signed." });
-  const cw = (CW - 0.4) / 2, cy = 4.75, ch = 4.25;
-  const card = (x, img, k, name, role, body) => {
-    rr(s, x, cy, cw, ch, C.white, C.line, 0.2);
-    const ph = ch - 0.7, pw = ph * 504 / 678;
-    s.addImage({ path: path.join(A, img), x: x + 0.35, y: cy + 0.35, w: pw, h: ph, rounding: false });
-    const tx = x + 0.35 + pw + 0.45, tw = cw - (tx - x) - 0.4;
-    T(s, UP(k), { x: tx, y: cy + 0.75, w: tw, h: 0.3, fontSize: 10.5, color: C.muted, charSpacing: 1.5 });
-    H(s, UP(name), { x: tx, y: cy + 1.05, w: tw, h: 0.5, fontSize: 22 });
-    T(s, role, { x: tx, y: cy + 1.55, w: tw, h: 0.35, fontSize: 13.5, fontFace: BOLD, bold: true, color: C.tealDeep });
-    T(s, body, { x: tx, y: cy + 2.0, w: tw, h: 1.9, fontSize: 14.5, color: C.text, lineSpacingMultiple: 1.08 });
-  };
-  card(M, "andreas.png", "Builds the product", "Andreas Herzinger", "Product & engineering", "Builds AI integrations for companies: secure connectors, data to LLM, RAG in production. Has seen how compliance turns every integration into a legal question. The evidence graph is his craft.");
-  card(M + cw + 0.4, "simone.png", "Builds the market", "Simone Mattioli", "AI & product development", "Customers, partners and discovery. EIT Digital Master School. The first year is interviews, one Dutch firm and two design partners, which is his ground.");
-  rr(s, M, 9.25, CW, 0.95, C.ink, C.ink, 0.16);
-  T(s, UP("Why we do it"), { x: M + 0.35, y: 9.25, w: 2.2, h: 0.95, fontSize: 10.5, fontFace: BOLD, bold: true, color: "B9C4C2", charSpacing: 1.5, valign: "middle" });
-  T(s, "We are a European generation that wants to bring something forward. Cheaper compliance makes Europe's companies more competitive, and we bring the professional experience to make it happen.", { x: M + 2.6, y: 9.25, w: CW - 2.9, h: 0.95, fontSize: 14.5, color: C.white, valign: "middle" });
+  const s = frame("Next steps", "Where we", "stand.", "Plan and validate first. Then build, launch, grow.",
+    { notes: "Now: product blueprint in planning; legal model validated country by country (planned as a project in a law class at ELTE, Budapest; submission not yet confirmed, so ELTE stays off the slide). AI Entrepreneurs Lab: build the MVP (evidence graph, adviser, legal gate). Launch: NIS2 readiness in the Netherlands; customers and law firm partners are won in parallel, neither waits for the other. Grow: Sweden, Germany as a country pack, further regulations. No dates on the slide by decision." });
+  const gap = 0.45, cwid = (CW - 3 * gap) / 4, ly = 5.3, d = 0.62;
+  const colX = i => M + i * (cwid + gap);
+  // track: grey line across, dark segment up to half of the first column
+  s.addShape(pres.ShapeType.line, { x: colX(0) + d / 2, y: ly, w: colX(3) + d / 2 - (colX(0) + d / 2), h: 0, line: { color: C.line, width: 3 } });
+  s.addShape(pres.ShapeType.line, { x: colX(0) + d / 2, y: ly, w: cwid / 2, h: 0, line: { color: C.ink, width: 3 } });
+  const steps = [
+    { kind: "now", k: "Now", h: "Plan and validate", b: "Planning the product.", p: "Validating the legal model country by country." },
+    { kind: "lab", k: "AI Entrepreneurs Lab", h: "Build", b: "Build the MVP.", p: "Evidence graph, adviser, legal gate." },
+    { kind: "later", k: "Then", h: "Launch", b: "NIS2 readiness in the Netherlands.", p: "Win customers. Sign law firm partners." },
+    { kind: "later", k: "Then", h: "Grow", b: "Sweden next.", p: "Germany as a country pack. Every further regulation." },
+  ];
+  steps.forEach((st, i) => {
+    const x = colX(i), cx = x, cy = ly - d / 2;
+    if (st.kind === "now") {
+      s.addShape(pres.ShapeType.ellipse, { x: cx - 0.17, y: cy - 0.17, w: d + 0.34, h: d + 0.34, fill: { color: C.paper }, line: { color: "B5B7B3", width: 1.25 } });
+      s.addShape(pres.ShapeType.ellipse, { x: cx, y: cy, w: d, h: d, fill: { color: C.ink }, line: { color: C.ink, width: 0 } });
+    } else if (st.kind === "lab") {
+      s.addShape(pres.ShapeType.ellipse, { x: cx, y: cy, w: d, h: d, fill: { color: C.teal }, line: { color: C.teal, width: 0 } });
+      s.addShape(pres.ShapeType.ellipse, { x: cx + d / 2 - 0.09, y: cy + d / 2 - 0.09, w: 0.18, h: 0.18, fill: { color: C.white }, line: { color: C.white, width: 0 } });
+    } else {
+      s.addShape(pres.ShapeType.ellipse, { x: cx, y: cy, w: d, h: d, fill: { color: C.paper }, line: { color: "B9BBB7", width: 1.75 } });
+    }
+    const kc = st.kind === "now" ? C.ink : st.kind === "lab" ? C.tealDeep : C.muted;
+    const hc = st.kind === "later" ? "4A4D4A" : C.ink;
+    const pc = st.kind === "later" ? C.muted : C.text;
+    T(s, UP(st.k), { x, y: ly + 0.55, w: cwid, h: 0.3, fontSize: 10.5, fontFace: BOLD, bold: true, color: kc, charSpacing: 1.5 });
+    H(s, UP(st.h), { x, y: ly + 0.88, w: cwid, h: 0.55, fontSize: 26, color: hc });
+    s.addText([{ text: st.b, options: { fontFace: BOLD, bold: true, color: pc, breakLine: true } }, { text: st.p, options: { color: pc } }],
+      { x, y: ly + 1.5, w: cwid, h: 1.5, fontFace: REG, fontSize: 15, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: 1.08 });
+  });
+  // mission band (variant 3): dark label block left, mist panel right, "competitive" in teal
+  const by = 8.7, bh = 1.05, lw = 2.2;
+  rr(s, M, by, CW, bh, C.mist, C.mist, 0.16);
+  // label block: round2SameRect rounds the two top corners; rotated 270 they become the left corners
+  { const bw = lw + 0.3, cx = M + bw / 2, cy = by + bh / 2;
+    s.addShape(pres.ShapeType.round2SameRect, { x: cx - bh / 2, y: cy - bw / 2, w: bh, h: bw, rotate: 270, fill: { color: C.ink }, line: { color: C.ink, width: 0 }, rectRadius: 0.16 }); }
+  T(s, UP("Our mission"), { x: M, y: by, w: lw + 0.3, h: bh, fontSize: 11, fontFace: BOLD, bold: true, color: C.white, charSpacing: 2, align: "center", valign: "middle" });
+  s.addText([{ text: "Companies spend less on regulation and more on what makes them ", options: { color: C.ink } }, { text: "competitive.", options: { color: C.tealDeep } }],
+    { x: M + lw + 0.75, y: by, w: CW - lw - 1.1, h: bh, fontFace: BOLD, bold: true, fontSize: 22, margin: 0, isTextBox: true, valign: "middle", charSpacing: -0.5 });
+}
+
+// =====================================================================
+// Slide F: Compliance is still guesswork (replaces Simone's slide 2, 20 Oct 2026; draft pain-draft.html)
+// =====================================================================
+{
+  const s = frame("Market pain points", "Compliance is still", "guesswork.", "Companies pay to reconstruct facts that already exist in their systems.",
+    { accentColor: C.rust, notes: "Three pains as on Simone's slide. The bridge: AI-first compliance, the facts come from the company's systems, not from questionnaires. Hands over to slide 03, the inside out framework." });
+  const y0 = 5.0, lw = 9.2, rowH = 1.3;
+  // left: today, outside-in
+  H(s, UP("Today"), { x: M, y: y0, w: 4, h: 0.45, fontSize: 19 });
+  T(s, UP("Outside-in"), { x: M + lw - 4, y: y0 + 0.08, w: 4, h: 0.35, fontSize: 10.5, fontFace: BOLD, bold: true, color: C.rust, charSpacing: 1.5, align: "right" });
+  s.addShape(pres.ShapeType.line, { x: M, y: y0 + 0.55, w: lw, h: 0, line: { color: C.ink, width: 1.5 } });
+  const pains = [["pain-q.png", "Questionnaires", "Answers from memory"], ["pain-c.png", "Stale evidence", "Gaps go unseen"], ["pain-d.png", "Legal overhead", "Fact-finding repeats"]];
+  pains.forEach((pn, i) => {
+    const ry = y0 + 0.72 + i * rowH, cy = ry + rowH / 2;
+    s.addShape(pres.ShapeType.ellipse, { x: M, y: cy - 0.33, w: 0.66, h: 0.66, fill: { color: "F2E5E2" }, line: { color: "F2E5E2", width: 0 } });
+    s.addImage({ path: path.join(A, pn[0]), x: M + 0.33 - 0.3, y: cy - 0.3, w: 0.6, h: 0.6 });
+    H(s, UP(pn[1]), { x: M + 0.95, y: cy - 0.42, w: lw - 1, h: 0.42, fontSize: 18 });
+    T(s, pn[2], { x: M + 0.95, y: cy + 0.0, w: lw - 1, h: 0.4, fontSize: 14, color: C.text });
+    if (i < 2) hr(s, M, ry + rowH, lw, C.line);
+  });
+  // arrow
+  const ay = y0 + 0.72 + 1.5 * rowH;
+  s.addShape(pres.ShapeType.line, { x: M + lw + 0.4, y: ay, w: 0.8, h: 0, line: { color: C.teal, width: 3, endArrowType: "triangle" } });
+  // right: the flip, mist panel
+  const px = M + lw + 1.6, pw = R - px, py = y0, ph = 0.72 + 3 * rowH;
+  rr(s, px, py, pw, ph, C.mist, C.mist, 0.22);
+  s.addShape(pres.ShapeType.ellipse, { x: px + 0.45, y: py + 0.47, w: 0.22, h: 0.22, fill: { color: C.teal }, line: { color: "B9D4D8", width: 1.5 } });
+  T(s, UP("Regulift"), { x: px + 0.8, y: py + 0.4, w: 3, h: 0.36, fontSize: 10.5, fontFace: BOLD, bold: true, color: C.tealDeep, charSpacing: 1.5 });
+  s.addText([{ text: "AI-first compliance: ", options: { color: C.teal } }, { text: "the facts come from your systems, not from questionnaires.", options: { color: C.ink } }],
+    { x: px + 0.45, y: py + 0.95, w: pw - 0.9, h: 2.3, fontFace: BOLD, bold: true, fontSize: 26, margin: 0, isTextBox: true, valign: "top", lineSpacingMultiple: 1.05, charSpacing: -0.5 });
+  hr(s, px + 0.45, py + ph - 1.0, pw - 0.9, "C9DCDE");
+  s.addText([{ text: "Next: ", options: { fontFace: BOLD, bold: true, color: C.tealDeep } }, { text: "the inside out framework.", options: { color: "4A5E62" } }],
+    { x: px + 0.45, y: py + ph - 0.85, w: pw - 0.9, h: 0.45, fontFace: REG, fontSize: 13, margin: 0, isTextBox: true, valign: "top" });
 }
 
 (async () => { await pres.writeFile({ fileName: OUT }); await applyTheme(OUT, THEME); console.log("written", OUT); })().catch(e => { console.error(e); process.exit(1); });
