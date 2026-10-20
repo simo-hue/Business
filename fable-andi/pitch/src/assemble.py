@@ -3,10 +3,11 @@
 
 usage: assemble.py simone.pptx strategy.pptx out.pptx
 
-- Keeps Simone's slides 1 to 4 (title, pain points, inside-out, loop), drops slide 5 (packages),
-  inserts the five generated slides, keeps slides 6 and 7 (early access, thanks).
+- Keeps Simone's slides 1, 3 and 4 (title, inside-out, loop), drops slide 2 (pain points, replaced by
+  generated slide 6) and slide 5 (packages), inserts the generated slides, keeps slides 6 and 7
+  (early access, thanks).
 - Every generated slide gets Simone's nav bar (copied from her slide 3, "Service" active) and
-  her page pill; the "Why us" slide gets "Team" active. Page pills are renumbered by position.
+  her page pill; the "Where we stand" slide gets "Conclusion" active. Page pills are renumbered by position.
 - Generated slides must keep all content below y = 2.0 in; nothing above that line is expected.
 """
 import sys, os, re, copy, shutil, zipfile, tempfile
@@ -25,8 +26,8 @@ parse = etree.parse
 def write(tree, p): tree.write(p, xml_declaration=True, encoding="UTF-8", standalone=True)
 
 # plan: (generated slide number, insert after this Simone slide file, active nav section)
-PLAN = [(1, "slide4.xml", "Service"), (2, None, "Service"), (3, None, "Service"), (4, None, "Service"), (5, None, "Team")]
-DROP = ["slide5.xml"]
+PLAN = [(1, "slide4.xml", "Service"), (2, None, "Service"), (3, None, "Service"), (4, None, "Service"), (5, None, "Conclusion"), (6, "slide1.xml", "About")]
+DROP = ["slide5.xml", "slide2.xml"]
 
 work = tempfile.mkdtemp(prefix="assemble-")
 C = os.path.join(work, "simone"); zipfile.ZipFile(SIMONE).extractall(C)

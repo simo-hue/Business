@@ -1,0 +1,271 @@
+<title>Regulift Next Steps Slide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: three 16:9 slide frames in the style of Simone's deck, one per option for the "Where we stand" slide. Slides keep a fixed paper look; the page chrome follows the theme. */
+  :root {
+    --page: #ECEDEA; --page-fg: #171717; --page-muted: #6B6E6A;
+    --paper: #FBFBFB; --ink: #171717; --muted: #6E7270; --line: #DADBD6;
+    --mist: #E8F2F2; --teal: #497078; --teal-deep: #315D66; --grey-fill: #E9E9E6; --rust: #A95E53;
+    --font: "Poppins", "Segoe UI", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --page: #1B1D1C; --page-fg: #F2F2EF; --page-muted: #A3A6A2; color-scheme: dark } }
+  :root[data-theme="dark"] { --page: #1B1D1C; --page-fg: #F2F2EF; --page-muted: #A3A6A2; color-scheme: dark }
+
+  body { background: var(--page); color: var(--page-fg); font-family: var(--font); padding-block: 32px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .wrap { max-width: 1500px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+  header.intro { max-width: 70ch; }
+  header.intro h1 { font-size: 22px; font-weight: 600; margin: 0 0 6px; }
+  header.intro p { margin: 0; color: var(--page-muted); font-size: 14px; line-height: 1.5; }
+  .slide-label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--page-muted); margin: 0 0 8px; }
+  .slide-label b { color: var(--page-fg); }
+
+  .slide { container-type: inline-size; aspect-ratio: 16 / 9; max-width: 100%; background: var(--paper); color: var(--ink); border-radius: 1.2cqw; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 12px 32px rgba(0,0,0,.08); position: relative; overflow: hidden; }
+  .s { position: absolute; inset: 0; padding: 2.6cqw 4.6cqw 2.2cqw; display: grid; grid-template-rows: auto auto 1fr auto; }
+
+  .nav { justify-self: center; display: flex; align-items: center; gap: 1cqw; background: #E6E6E3; border-radius: 4cqw; padding: 0.55cqw 0.9cqw 0.55cqw 1.1cqw; font-size: 1.05cqw; }
+  .nav .brand { display: flex; align-items: center; gap: 0.5cqw; font-weight: 700; margin-right: 8cqw; }
+  .nav .brand i { width: 1.6cqw; height: 1.6cqw; border-radius: 50%; background: var(--ink); display: inline-grid; place-items: center; }
+  .nav .brand i::after { content: ""; width: 0.7cqw; height: 0.7cqw; border-left: 0.18cqw solid #fff; border-top: 0.18cqw solid #fff; transform: rotate(45deg) translate(0.1cqw, 0.1cqw); }
+  .nav span { padding: 0.5cqw 1.9cqw; border-radius: 3cqw; background: #D6D6D2; color: #3A3A38; }
+  .nav span.on { background: var(--ink); color: #fff; }
+
+  .kicker { font-size: 0.95cqw; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 2.2cqw; font-weight: 500; }
+  h2 { font-size: 3.4cqw; line-height: 1.06; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 0.5cqw 0 0; text-wrap: balance; }
+  h2 em { font-style: normal; color: var(--teal); }
+  .lead { font-size: 1.25cqw; color: var(--muted); margin: 0.7cqw 0 0; max-width: 62cqw; line-height: 1.45; }
+
+  .body { min-height: 0; margin-top: 1.8cqw; }
+  .foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 2cqw; font-size: 1cqw; color: var(--muted); line-height: 1.5; margin-top: 1.3cqw; padding-right: 7cqw; }
+  .pill { position: absolute; right: 0; bottom: 0; background: var(--ink); color: #fff; font-size: 0.95cqw; padding: 0.55cqw 1.3cqw; border-radius: 0.6cqw 0 0 0; }
+
+  /* shared bits */
+  .tag { display: inline-block; font-size: 0.72cqw; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; padding: 0.3cqw 0.8cqw; border-radius: 2cqw; }
+  .tag.lab { background: var(--teal); color: #fff; }
+  .tag.now { background: var(--ink); color: #fff; }
+  .tag.later { background: var(--grey-fill); color: #4A4D4A; }
+
+  /* ---------- Option A: horizontal track ---------- */
+  .optA { display: grid; grid-template-rows: 1fr auto; gap: 1.2cqw; height: 100%; }
+  .trackwrap { display: flex; flex-direction: column; justify-content: center; min-height: 0; }
+  .track { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6cqw; align-content: start; padding-top: 1cqw; }
+  .track::before { content: ""; position: absolute; left: 1.5cqw; right: 1.5cqw; top: 2.4cqw; height: 0.22cqw; background: var(--line); border-radius: 1cqw; }
+  .track::after { content: ""; position: absolute; left: 1.5cqw; width: 12.5%; top: 2.4cqw; height: 0.22cqw; background: var(--ink); border-radius: 1cqw; }
+  .node { position: relative; display: flex; flex-direction: column; gap: 0.6cqw; min-width: 0; }
+  .node .dot { width: 3cqw; height: 3cqw; border-radius: 50%; border: 0.22cqw solid var(--ink); background: var(--paper); display: grid; place-items: center; position: relative; z-index: 1; }
+  .node.now .dot { background: var(--ink); }
+  .node.now .dot::after { content: ""; position: absolute; inset: -0.75cqw; border-radius: 50%; border: 0.18cqw solid var(--ink); opacity: .35; animation: pulse 2.2s ease-out infinite; }
+  @keyframes pulse { 0% { transform: scale(.8); opacity: .5 } 100% { transform: scale(1.35); opacity: 0 } }
+  @media (prefers-reduced-motion: reduce) { .node.now .dot::after { animation: none } }
+  .node.lab .dot { border-color: var(--teal); background: var(--teal); }
+  .node.lab .dot::before { content: ""; width: 0.9cqw; height: 0.9cqw; border-radius: 50%; background: #fff; }
+  .node.later .dot { border-color: #B9BBB7; }
+  .node .k { font-size: 0.8cqw; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-top: 0.6cqw; }
+  .node.now .k { color: var(--ink); } .node.lab .k { color: var(--teal-deep); }
+  .node h3 { margin: 0; font-size: 1.9cqw; font-weight: 700; text-transform: uppercase; line-height: 1.1; }
+  .node.later h3 { color: #4A4D4A; }
+  .node p { margin: 0; font-size: 1.1cqw; line-height: 1.42; color: #3B3E3C; }
+  .node.later p { color: var(--muted); }
+  .node p b { display: block; font-weight: 600; color: inherit; }
+  .band { display: grid; grid-template-columns: auto 1fr; gap: 1.4cqw; align-items: center; background: var(--ink); color: #fff; border-radius: 0.9cqw; padding: 0.95cqw 1.6cqw; font-size: 1.05cqw; line-height: 1.4; }
+  .band b { font-size: 0.78cqw; letter-spacing: 0.12em; text-transform: uppercase; color: #B9C4C2; white-space: nowrap; font-weight: 600; }
+
+  /* ---------- Option B: now block + three next ---------- */
+  .optB { display: grid; grid-template-columns: 1.05fr 1fr; gap: 1.6cqw; height: 100%; min-height: 0; align-content: center; align-items: stretch; }
+  .nowbox { background: var(--ink); color: #fff; border-radius: 1.1cqw; padding: 1.8cqw 2cqw; display: flex; flex-direction: column; gap: 1.2cqw; min-width: 0; }
+  .nowbox .k { font-size: 0.8cqw; letter-spacing: 0.12em; text-transform: uppercase; color: #B9C4C2; font-weight: 500; display: flex; align-items: center; gap: 0.6cqw; }
+  .nowbox .k i { width: 0.8cqw; height: 0.8cqw; border-radius: 50%; background: #fff; box-shadow: 0 0 0 0.3cqw rgba(255,255,255,.25); }
+  .nowbox h3 { margin: 0; font-size: 2.6cqw; font-weight: 700; text-transform: uppercase; line-height: 1.05; }
+  .nowbox .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1cqw; margin-top: 0.4cqw; }
+  .nowbox .two div { background: #2A3436; border-radius: 0.8cqw; padding: 1cqw 1.2cqw; font-size: 1cqw; line-height: 1.4; color: #D7DEDC; min-width: 0; }
+  .nowbox .two b { display: block; color: #fff; font-size: 1.15cqw; text-transform: uppercase; margin-bottom: 0.3cqw; }
+  .nextcol { display: grid; grid-template-rows: repeat(3, auto); gap: 0.8cqw; min-width: 0; align-content: center; }
+  .next { display: grid; grid-template-columns: 2.4cqw 1fr; gap: 1.2cqw; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 1cqw; padding: 1.3cqw 1.4cqw; min-width: 0; }
+  .next.lab { background: var(--mist); border-color: var(--mist); }
+  .next .n { width: 2.4cqw; height: 2.4cqw; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 1.1cqw; background: var(--grey-fill); color: #4A4D4A; }
+  .next.lab .n { background: var(--teal); color: #fff; }
+  .next h3 { margin: 0; font-size: 1.45cqw; font-weight: 700; text-transform: uppercase; line-height: 1.1; display: flex; align-items: center; gap: 0.8cqw; flex-wrap: wrap; }
+  .next.lab h3 { color: var(--teal-deep); }
+  .next p { margin: 0.25cqw 0 0; font-size: 1.05cqw; line-height: 1.4; color: #3B3E3C; }
+
+  /* ---------- Option C: rising steps ---------- */
+  .optC { display: grid; grid-template-rows: 1fr auto; gap: 1.1cqw; height: 100%; min-height: 0; align-content: center; }
+  .stairs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9cqw; align-items: end; min-height: 0; height: 21cqw; align-self: end; }
+  .stair { border-radius: 1cqw; padding: 1.2cqw 1.3cqw; display: flex; flex-direction: column; gap: 0.5cqw; min-width: 0; }
+  .stair.s1 { height: 80%; background: var(--ink); color: #fff; }
+  .stair.s2 { height: 87%; background: var(--teal); color: #fff; }
+  .stair.s3 { height: 94%; background: var(--mist); color: #2A3A3C; }
+  .stair.s4 { height: 100%; background: var(--grey-fill); color: #3B3E3C; }
+  .stair .k { font-size: 0.78cqw; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; opacity: .8; }
+  .stair h3 { margin: 0; font-size: 1.6cqw; font-weight: 700; text-transform: uppercase; line-height: 1.1; }
+  .stair p { margin: 0; font-size: 1.05cqw; line-height: 1.4; opacity: .92; }
+  .stair p + p { margin-top: 0.1cqw; }
+  .stair .sp { flex: 1; }
+  .stair .ft { font-size: 0.78cqw; letter-spacing: 0.1em; text-transform: uppercase; opacity: .75; }
+  .stair.s1 .ft { display: flex; align-items: center; gap: 0.5cqw; } .stair.s1 .ft i { width: 0.7cqw; height: 0.7cqw; border-radius: 50%; background: #fff; }
+  .arrowline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9cqw; font-size: 0.82cqw; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .arrowline span { display: flex; align-items: center; gap: 0.6cqw; }
+  .arrowline span::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .arrowline span:last-child::after { display: none; }
+
+  @media (max-width: 700px) {
+    .track, .optB, .nextcol, .stairs, .arrowline { display: flex; flex-direction: column; height: auto; }
+    .track::before, .track::after { display: none; }
+    .stair { height: auto !important; }
+    .nowbox .two { grid-template-columns: 1fr; }
+    .node h3, .next h3, .stair h3 { font-size: 16px; } .nowbox h3 { font-size: 22px; }
+    .node p, .next p, .stair p, .band, .nowbox .two div, .tag, .node .k, .nowbox .k, .stair .k { font-size: 13px; }
+  }
+
+  /* ---------- Mission band variants ---------- */
+  .optA.v { grid-template-rows: 1fr auto; padding-bottom: 4.2cqw; box-sizing: border-box; }
+  /* 1: teal statement block */
+  .band.teal { background: var(--teal); color: #fff; grid-template-columns: 1fr; gap: 0.5cqw; padding: 1.3cqw 1.8cqw; }
+  .band.teal b { color: #D7E6E8; }
+  .band.teal span { font-size: 1.7cqw; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; }
+  /* 2: open statement, big type, no box */
+  .mission2 { border-top: 0.22cqw solid var(--ink); padding-top: 1cqw; display: grid; grid-template-columns: auto 1fr; gap: 2cqw; align-items: baseline; }
+  .mission2 b { font-size: 0.8cqw; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-deep); font-weight: 600; white-space: nowrap; }
+  .mission2 span { font-size: 2.2cqw; font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; }
+  .mission2 em { font-style: normal; color: var(--teal); }
+  /* 3: mist panel with dark label block */
+  .mission3 { display: grid; grid-template-columns: 11cqw 1fr; border-radius: 0.9cqw; overflow: hidden; }
+  .mission3 .lbl { background: var(--ink); color: #fff; display: grid; place-items: center; font-size: 0.85cqw; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; padding: 1cqw; text-align: center; }
+  .mission3 .txt { background: var(--mist); color: var(--ink); padding: 1.1cqw 1.8cqw; font-size: 1.75cqw; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; display: flex; align-items: center; }
+  .mission3 .txt em { font-style: normal; color: var(--teal-deep); }
+  @media (max-width: 700px) { .band.teal span, .mission2 span, .mission3 .txt { font-size: 16px; } .mission2, .mission3 { grid-template-columns: 1fr; } }
+</style>
+
+<div class="wrap">
+  <header class="intro">
+    <h1>Slide 09, mission band: three treatments</h1>
+    <p>Layout A is set. Same sentence on all three, only the band changes: 1 teal block, 2 open big type, 3 mist panel with a dark label. Chosen: 3, moved up.</p>
+  </header>
+
+  <!-- ===== Band 1 ===== -->
+  <p class="slide-label">Band <b>1</b> · Teal statement block</p>
+  <div class="slide"><div class="s">
+    <div class="nav"><div class="brand"><i></i>Regulift</div><span>About</span><span>Service</span><span>Team</span><span class="on">Conclusion</span></div>
+    <div>
+      <div class="kicker">Next steps</div>
+      <h2>Where we <em>stand.</em></h2>
+      <p class="lead">Plan and validate first. Then build, launch, grow.</p>
+    </div>
+    <div class="body optA v">
+      <div class="trackwrap"><div class="track">
+        <div class="node now">
+          <div class="dot"></div>
+          <div class="k">Now</div>
+          <h3>Plan and validate</h3>
+          <p><b>Planning the product.</b>Validating the legal model country by country.</p>
+        </div>
+        <div class="node lab">
+          <div class="dot"></div>
+          <div class="k">AI Entrepreneurs Lab</div>
+          <h3>Build</h3>
+          <p><b>Build the MVP.</b>Evidence graph, adviser, legal gate.</p>
+        </div>
+        <div class="node later">
+          <div class="dot"></div>
+          <div class="k">Then</div>
+          <h3>Launch</h3>
+          <p><b>NIS2 readiness in the Netherlands.</b>Win customers. Sign law firm partners.</p>
+        </div>
+        <div class="node later">
+          <div class="dot"></div>
+          <div class="k">Then</div>
+          <h3>Grow</h3>
+          <p><b>Sweden next.</b>Germany as a country pack. Every further regulation.</p>
+        </div>
+      </div></div>
+      <div class="band teal"><b>Our mission</b><span>Companies spend less on regulation and more on what makes them competitive.</span></div>
+    </div>
+    <div class="foot"></div>
+    <div class="pill">Page 09</div>
+  </div></div>
+
+  <!-- ===== Band 2 ===== -->
+  <p class="slide-label">Band <b>2</b> · Open statement, big type</p>
+  <div class="slide"><div class="s">
+    <div class="nav"><div class="brand"><i></i>Regulift</div><span>About</span><span>Service</span><span>Team</span><span class="on">Conclusion</span></div>
+    <div>
+      <div class="kicker">Next steps</div>
+      <h2>Where we <em>stand.</em></h2>
+      <p class="lead">Plan and validate first. Then build, launch, grow.</p>
+    </div>
+    <div class="body optA v">
+      <div class="trackwrap"><div class="track">
+        <div class="node now">
+          <div class="dot"></div>
+          <div class="k">Now</div>
+          <h3>Plan and validate</h3>
+          <p><b>Planning the product.</b>Validating the legal model country by country.</p>
+        </div>
+        <div class="node lab">
+          <div class="dot"></div>
+          <div class="k">AI Entrepreneurs Lab</div>
+          <h3>Build</h3>
+          <p><b>Build the MVP.</b>Evidence graph, adviser, legal gate.</p>
+        </div>
+        <div class="node later">
+          <div class="dot"></div>
+          <div class="k">Then</div>
+          <h3>Launch</h3>
+          <p><b>NIS2 readiness in the Netherlands.</b>Win customers. Sign law firm partners.</p>
+        </div>
+        <div class="node later">
+          <div class="dot"></div>
+          <div class="k">Then</div>
+          <h3>Grow</h3>
+          <p><b>Sweden next.</b>Germany as a country pack. Every further regulation.</p>
+        </div>
+      </div></div>
+      <div class="mission2"><b>Our mission</b><span>Companies spend less on regulation and more on what makes them <em>competitive.</em></span></div>
+    </div>
+    <div class="foot"></div>
+    <div class="pill">Page 09</div>
+  </div></div>
+
+  <!-- ===== Band 3 ===== -->
+  <p class="slide-label">Band <b>3</b> · Mist panel, dark label</p>
+  <div class="slide"><div class="s">
+    <div class="nav"><div class="brand"><i></i>Regulift</div><span>About</span><span>Service</span><span>Team</span><span class="on">Conclusion</span></div>
+    <div>
+      <div class="kicker">Next steps</div>
+      <h2>Where we <em>stand.</em></h2>
+      <p class="lead">Plan and validate first. Then build, launch, grow.</p>
+    </div>
+    <div class="body optA v">
+      <div class="trackwrap"><div class="track">
+        <div class="node now">
+          <div class="dot"></div>
+          <div class="k">Now</div>
+          <h3>Plan and validate</h3>
+          <p><b>Planning the product.</b>Validating the legal model country by country.</p>
+        </div>
+        <div class="node lab">
+          <div class="dot"></div>
+          <div class="k">AI Entrepreneurs Lab</div>
+          <h3>Build</h3>
+          <p><b>Build the MVP.</b>Evidence graph, adviser, legal gate.</p>
+        </div>
+        <div class="node later">
+          <div class="dot"></div>
+          <div class="k">Then</div>
+          <h3>Launch</h3>
+          <p><b>NIS2 readiness in the Netherlands.</b>Win customers. Sign law firm partners.</p>
+        </div>
+        <div class="node later">
+          <div class="dot"></div>
+          <div class="k">Then</div>
+          <h3>Grow</h3>
+          <p><b>Sweden next.</b>Germany as a country pack. Every further regulation.</p>
+        </div>
+      </div></div>
+      <div class="mission3"><div class="lbl">Our mission</div><div class="txt"><span>Companies spend less on regulation and more on what makes them <em>competitive.</em></span></div></div>
+    </div>
+    <div class="foot"></div>
+    <div class="pill">Page 09</div>
+  </div></div>
+
+</div>
